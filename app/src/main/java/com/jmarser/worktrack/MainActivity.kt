@@ -14,7 +14,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.jmarser.worktrack.ui.theme.LocalDimens
 import com.jmarser.worktrack.ui.theme.WorkTrackTheme
 import com.jmarser.worktrack.ui.theme.appDimens
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
