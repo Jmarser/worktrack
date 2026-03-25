@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -45,6 +47,12 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = "2.2.21"
+    }
+
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17) // Use JVM_1_8, JVM_11, etc., depending on your project
+        }
     }
 
     packaging {
