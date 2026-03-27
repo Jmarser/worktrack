@@ -24,6 +24,11 @@ val LightOnSecondaryContainer = Color(0xFF101C2B)
 val LightTertiaryContainer = Color(0xFFB1F1C0)
 val LightOnTertiaryContainer = Color(0xFF00210B)
 
+val LightRed = Color(0xffba1a1a)
+val LightRedBrush = Color(0xfffff4f3)
+val LightGreen = Color(0xff2e6c45)
+val LightGreenBrush = Color(0xffb0f2c0)
+
 // Variantes para Dark Theme
 val DarkPrimary = Color(0xFFA9C7FF)
 val DarkOnPrimary = Color(0xFF003062)
@@ -36,6 +41,11 @@ val DarkOnSecondaryContainer = Color(0xFFD7E3F7)
 val DarkTertiary = Color(0xFF96D5A5)
 val DarkOnTertiary = Color(0xFF003919)
 val DarkTertiaryContainer = Color(0xFF13522F)
+
+val DarkRed = Color(0xFFFFB4AB)
+val DarkRedBrush = Color(0xFF690005)
+val DarkGreen = Color(0xFF96D5A5)
+val DarkGreenBrush = Color(0xFF13522F)
 
 // Fondos y Superficies
 val LightBackground = Color(0xFFFDFBFF)
