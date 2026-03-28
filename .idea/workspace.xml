@@ -10,19 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c79acd33-9c5e-4b63-a28a-9a1a472d7866" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/WorkTrackDataBase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/dao/CompanyDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/dao/ExpanseDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/dao/WorkDayDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/dao/WorkLocationDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/entity/CompanyEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/entity/ExpanseEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/entity/WorkDayEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/entity/WorkLocationEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/model/WorkDayWithDetails.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/util/Converters.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/di/RoomDataBaseModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/model/CompanySummaryEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/model/CompanyWithWorkDays.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/datasource/LocalDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/datasource/LocalDataSourceImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/CompanyCompleteMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/CompanyMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/CompanySummaryMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/ExpanseMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/WorkDayCompleteMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/WorkDayMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/mapper/WorkLocationMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/repository/CompanyRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/di/LocalDataSourceModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/Company.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/CompanyComplete.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/CompanySummary.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/Expanse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/WorkDay.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/WorkDayComplete.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/WorkLocation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/repository/CompanyRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/dao/CompanyDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/dao/CompanyDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/entity/CompanyEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/local/database/entity/CompanyEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/di/RoomDataBaseModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/di/RoomDataBaseModule.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +70,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
-        <option value="Kotlin Data Class" />
+        <option value="Kotlin Object" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
-        <option value="Kotlin Object" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>

@@ -3,6 +3,10 @@ package com.jmarser.worktrack.di
 import android.content.Context
 import androidx.room.Room
 import com.jmarser.worktrack.data.local.database.WorkTrackDataBase
+import com.jmarser.worktrack.data.local.database.dao.CompanyDao
+import com.jmarser.worktrack.data.local.database.dao.ExpanseDao
+import com.jmarser.worktrack.data.local.database.dao.WorkDayDao
+import com.jmarser.worktrack.data.local.database.dao.WorkLocationDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,14 +29,26 @@ object RoomDataBaseModule {
     }
 
     @Provides
-    fun provideCompanyDao(db: WorkTrackDataBase) = db.companyDao()
+    @Singleton
+    fun provideCompanyDao(db: WorkTrackDataBase): CompanyDao{
+        return db.companyDao()
+    }
 
     @Provides
-    fun provideWorkDayDao(db: WorkTrackDataBase) = db.workDayDao()
+    @Singleton
+    fun provideWorkDayDao(db: WorkTrackDataBase): WorkDayDao{
+        return db.workDayDao()
+    }
 
     @Provides
-    fun provideWorkLocation(db: WorkTrackDataBase) = db.workLocationDao()
+    @Singleton
+    fun provideWorkLocationDao(db: WorkTrackDataBase): WorkLocationDao{
+        return db.workLocationDao()
+    }
 
     @Provides
-    fun provideExpanseDao(db: WorkTrackDataBase) = db.expanseDao()
+    @Singleton
+    fun provideExpanseDao(db: WorkTrackDataBase): ExpanseDao{
+        return db.expanseDao()
+    }
 }

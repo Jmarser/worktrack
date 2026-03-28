@@ -10,6 +10,6 @@ data class CompanyEntity(
     val id: Long,
     val name: String,
     val fullTimePrice: Double? = null,
-    val HalfTimePrice: Double? = null,
+    val halfTimePrice: Double? = null,
 
 )

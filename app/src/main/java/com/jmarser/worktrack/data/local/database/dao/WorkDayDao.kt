@@ -36,7 +36,7 @@ interface WorkDayDao {
 
     @Transaction
     @Query("SELECT* FROM work_day WHERE id = :workDayId")
-    suspend fun getWorkDayDetails(workDayId: Long): WorkDayWithDetails?
+    fun getWorkDayDetails(workDayId: Long): Flow<WorkDayWithDetails?>
 
     @Query("DELETE FROM work_day WHERE id = :id")
     suspend fun deleteWorkDay(id: Long)

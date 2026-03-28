@@ -29,6 +29,6 @@ interface WorkLocationDao {
     suspend fun deleteLocation(location: WorkLocationEntity)
 
     @Query("SELECT * FROM work_location WHERE workDayId = :workDayId")
-    fun getLocationsByday(workDayId: Long): Flow<List<WorkLocationEntity>>
+    fun getLocationsByday(workDayId: Long): Flow<List<WorkLocationEntity?>>
 
 }

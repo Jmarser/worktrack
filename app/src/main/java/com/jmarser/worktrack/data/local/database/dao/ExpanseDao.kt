@@ -32,5 +32,5 @@ interface ExpanseDao {
     suspend fun updateExpansePaymentStatus(expanseId: Long, paid: Boolean)
 
     @Query("SELECT * FROM expanse WHERE workDayId = :workDayId")
-    fun getExpansesByDay(workDayId: Long): Flow<List<ExpanseEntity>>
+    fun getExpansesByDay(workDayId: Long): Flow<List<ExpanseEntity?>>
 }
