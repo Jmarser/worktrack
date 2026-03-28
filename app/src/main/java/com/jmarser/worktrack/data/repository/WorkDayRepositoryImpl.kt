@@ -1,5 +1,6 @@
 package com.jmarser.worktrack.data.repository
 
+import com.jmarser.worktrack.core.data.repository.BaseRepository
 import com.jmarser.worktrack.core.domain.coroutines.DispatchersProvider
 import com.jmarser.worktrack.data.local.datasource.LocalDataSource
 import com.jmarser.worktrack.data.mapper.toDomain
@@ -22,28 +23,28 @@ import javax.inject.Inject
 
 class WorkDayRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
-    private val dispatchers: DispatchersProvider
-): WorkDayRepository {
+    dispatchers: DispatchersProvider
+) : BaseRepository(dispatchers), WorkDayRepository {
     override suspend fun insertWorkDay(workDay: WorkDay): Long {
-        return withContext(dispatchers.io){
+        return doWork {
             localDataSource.insertWorkDay(workDay.toEntity())
         }
     }
 
     override suspend fun updateWorkDay(workDay: WorkDay) {
-        return withContext(dispatchers.io){
+        return doWork {
             localDataSource.updateWorkDay(workDay.toEntity())
         }
     }
 
     override suspend fun updatePaymentStatus(workDayId: Long, isPaid: Boolean) {
-        return withContext(dispatchers.io){
+        return doWork {
             localDataSource.updateWorkDayPaymentStatus(workDayId, isPaid)
         }
     }
 
     override suspend fun deleteWorkDay(workDayId: Long) {
-        return withContext(dispatchers.io){
+        return doWork {
             localDataSource.deleteWorkDay(workDayId)
         }
     }
@@ -51,12 +52,12 @@ class WorkDayRepositoryImpl @Inject constructor(
     override fun getWorkDayDetails(workDayId: Long): Flow<WorkDayComplete?> {
         return localDataSource.getWorkdayDetails(workDayId)
             .map { it?.toDomain() }
-            .flowOn(dispatchers.io)
+            .asIoFlow()
     }
 
     override fun getWorkDaysByCompany(companyId: Long): Flow<List<WorkDayComplete>> {
         return localDataSource.getWorkDaysByCompany(companyId)
             .map { list -> list.map { it.toDomain() } }
-            .flowOn(dispatchers.io)
+            .asIoFlow()
     }
 }

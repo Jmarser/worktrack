@@ -1,5 +1,6 @@
 package com.jmarser.worktrack.data.repository
 
+import com.jmarser.worktrack.core.data.repository.BaseRepository
 import com.jmarser.worktrack.core.domain.coroutines.DispatchersProvider
 import com.jmarser.worktrack.data.local.datasource.LocalDataSource
 import com.jmarser.worktrack.data.mapper.toDomain
@@ -21,22 +22,22 @@ import javax.inject.Inject
 
 class WorkLocationRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
-    private val dispatchers: DispatchersProvider
-): WorkLocationRepository {
+    dispatchers: DispatchersProvider
+): BaseRepository(dispatchers), WorkLocationRepository {
     override suspend fun insertLocation(location: WorkLocation) {
-        return withContext(dispatchers.io) {
+        return doWork {
             localDataSource.insertLocation(location.toEntity())
         }
     }
 
     override suspend fun updateLocation(location: WorkLocation) {
-        return withContext(dispatchers.io) {
+        return doWork {
             localDataSource.updateLocation(location.toEntity())
         }
     }
 
     override suspend fun deleteLocation(location: WorkLocation) {
-        return withContext(dispatchers.io) {
+        return doWork {
             localDataSource.deleleLocation(location.toEntity())
         }
     }
@@ -44,7 +45,7 @@ class WorkLocationRepositoryImpl @Inject constructor(
     override fun getLocationsByDay(workId: Long): Flow<List<WorkLocation?>> {
         return localDataSource.getLocationsByDay(workId)
             .map { list -> list.map { it?.toDomain() } }
-            .flowOn(dispatchers.io)
+            .asIoFlow()
     }
 
 }

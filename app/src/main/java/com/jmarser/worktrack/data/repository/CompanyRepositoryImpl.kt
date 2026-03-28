@@ -1,5 +1,6 @@
 package com.jmarser.worktrack.data.repository
 
+import com.jmarser.worktrack.core.data.repository.BaseRepository
 import com.jmarser.worktrack.core.domain.coroutines.DispatchersProvider
 import com.jmarser.worktrack.data.local.datasource.LocalDataSource
 import com.jmarser.worktrack.data.mapper.toDomain
@@ -23,45 +24,45 @@ import javax.inject.Inject
 
 class CompanyRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
-    private val dispatchers: DispatchersProvider
-) : CompanyRepository {
+    dispatchers: DispatchersProvider
+) : BaseRepository(dispatchers), CompanyRepository {
     override suspend fun addCompany(company: Company): Long {
-        return withContext(dispatchers.io) {
+        return doWork {
             localDataSource.insertCompany(company.toEntity())
         }
     }
 
     override suspend fun updateCompany(company: Company) {
-        return withContext(dispatchers.io) {
+        return doWork {
             localDataSource.updateCompany(company.toEntity())
         }
     }
 
     override suspend fun deleteComapny(company: Company) {
-        return withContext(dispatchers.io) {
+        return doWork {
             localDataSource.deleteCompany(company.toEntity())
         }
     }
 
     override fun getCompanyById(id: Long): Flow<Company?> {
         return localDataSource.getCompanyById(id)
-            .map { entity -> entity?.toDomain() }.flowOn(dispatchers.io)
+            .map { entity -> entity?.toDomain() }.asIoFlow()
     }
 
     override fun getAllCompanies(): Flow<List<Company>> {
         return localDataSource.getAllCompanies()
-            .map { entities -> entities.map { it.toDomain() } }.flowOn(dispatchers.io)
+            .map { entities -> entities.map { it.toDomain() } }.asIoFlow()
     }
 
     override fun getCompanyComplete(id: Long): Flow<CompanyComplete?> {
         return localDataSource.getCompanyWithWorkDays(id)
             .map { it?.toDomain() }
-            .flowOn(dispatchers.io)
+            .asIoFlow()
     }
 
     override fun getCompaniesSummary(): Flow<List<CompanySummary>> {
         return localDataSource.getCompaniesSummary()
             .map { entities -> entities.map { it.toDomain() } }
-            .flowOn(dispatchers.io)
+            .asIoFlow()
     }
 }
