@@ -4,5 +4,6 @@ data class CompanySummary(
     val id: Long,
     val name: String,
     val totalDaysWorked: Int,
-    val daysPending: Int
+    val daysPending: Int,
+    val amountPaid: Double
 )

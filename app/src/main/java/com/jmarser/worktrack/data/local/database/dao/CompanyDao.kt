@@ -45,7 +45,8 @@ interface CompanyDao {
         c.id as id, 
         c.name as name, 
         COUNT(w.id) as totalDaysWorked,
-        SUM(CASE WHEN w.isPaid = 0 THEN 1 ELSE 0 END) as daysPending
+        SUM(CASE WHEN w.isPaid = 0 THEN 1 ELSE 0 END) as daysPending,
+        w.amountPaid as amountPaid
     FROM company c
     LEFT JOIN work_day w ON c.id = w.companyId
     GROUP BY c.id

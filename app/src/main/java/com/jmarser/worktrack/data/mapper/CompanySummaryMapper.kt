@@ -15,6 +15,7 @@ fun CompanySummaryEntity.toDomain(): CompanySummary{
         id = this.id,
         name = this.name,
         totalDaysWorked = this.totalDaysWorked,
-        daysPending = this.daysPending
+        daysPending = this.daysPending,
+        amountPaid = this.amountPaid
     )
 }

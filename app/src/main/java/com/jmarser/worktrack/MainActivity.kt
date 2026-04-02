@@ -9,27 +9,22 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jmarser.worktrack.ui.theme.AppDimens
-import com.jmarser.worktrack.ui.theme.LocalDimens
-import com.jmarser.worktrack.ui.theme.WorkTrackTheme
+import com.jmarser.worktrack.presentation.navigation.NavGraph
+import com.jmarser.worktrack.ui.theme.MyAppTheme
 import com.jmarser.worktrack.ui.theme.appDimens
-import com.jmarser.worktrack.ui.theme.shapes
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -39,13 +34,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            WorkTrackTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            MyAppTheme {
+                NavGraph()
             }
         }
     }
@@ -91,7 +81,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 )
 @Composable
 fun GreetingPreview() {
-    WorkTrackTheme {
+    MyAppTheme {
         Greeting("Android")
     }
 }
