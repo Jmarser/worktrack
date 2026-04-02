@@ -17,10 +17,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jmarser.worktrack.core.presentation.components.AppBar
 import com.jmarser.worktrack.core.presentation.components.AppImages
+import com.jmarser.worktrack.core.presentation.components.CardWithShimmer
 import com.jmarser.worktrack.core.presentation.screens.EmptyScreen
 import com.jmarser.worktrack.core.presentation.screens.ErrorScreen
 import com.jmarser.worktrack.core.presentation.screens.LoadingScreen
@@ -65,17 +67,33 @@ fun CompanyListScreen(
 
         when (val state = uiState) {
             CompanyListState.Loading -> {
-                LoadingScreen()
-            }
-
-            CompanyListState.Empty -> {
-                EmptyScreen(
-                    modifier = modifier.padding(paddingValues),
-                    message = "No hay empresas disponibles\nCree una empresa."
+                CompanyListLoading(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize()
                 )
             }
 
-            CompanyListState.Idle -> {}
+            CompanyListState.Empty -> {
+/*                EmptyScreen(
+                    modifier = modifier.padding(paddingValues),
+                    message = "No hay empresas disponibles\nCree una empresa."
+                )*/
+                CompanyListLoading(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize()
+                )
+            }
+
+            CompanyListState.Idle -> {
+                CompanyListLoading(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize()
+                )
+            }
+
             is CompanyListState.Failure -> {
                 ErrorScreen(
                     modifier = modifier.padding(paddingValues),
