@@ -34,6 +34,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -62,12 +63,14 @@ fun CreateCompanyScreen(
     navigateToBack: () -> Unit
 ) {
 
+    val context = LocalContext.current
     val snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }
     val formState by viewModel.formState.collectAsStateWithLifecycle()
 
     var expanded by remember { mutableStateOf(false) }
     val currencies = CurrencyType.entries
     val selectedCurrency = remember(formState.currencyType) {formState.currencyType }
+    var pendingMessageResId by remember{mutableStateOf(0)}
 
     LaunchedEffect(Unit) {
         viewModel.uiEffect.collect { effect ->
@@ -77,9 +80,17 @@ fun CreateCompanyScreen(
                 }
                 CreateCompanyEffect.NavigateToSettings -> {}
                 is CreateCompanyEffect.ShowMessage -> {
-                    snackbarHostState.showSnackbar(effect.message)
+                    pendingMessageResId = effect.resId
                 }
             }
+        }
+    }
+
+    val messageToShow = if (pendingMessageResId != 0) stringResource(pendingMessageResId) else ""
+    LaunchedEffect(pendingMessageResId) {
+        if (pendingMessageResId != 0){
+            snackbarHostState.showSnackbar(messageToShow)
+            pendingMessageResId = 0
         }
     }
 

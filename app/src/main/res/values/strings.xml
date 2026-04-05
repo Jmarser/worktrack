@@ -28,6 +28,8 @@
     <string name="billing_advice">Consejos de facturación</string>
     <string name="message_billing_advide">Los precios configurados aquí se aplicarán automáticamente a tus nuevos registros de jornada para esta empresa.</string>
     <string name="save_company">Guardar Empresa</string>
+    <string name="create_company_success">La empresa se ha creado correctamente.</string>
+    <string name="create_company_error">Ha ocurrido un error al crear la empresa.</string>
 
     <string name="name_company_required">El nombre de la empresa es requerido.</string>
     <string name="company_already_exists">La empresa ya existe.</string>

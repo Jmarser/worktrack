@@ -2,6 +2,7 @@ package com.jmarser.worktrack.presentation.createCompany.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.error.ValidationError
 import com.jmarser.worktrack.domain.model.CurrencyType
 import com.jmarser.worktrack.domain.useCase.RegisterCompanyUseCase
@@ -168,9 +169,9 @@ class CreateCompanyViewModel @Inject constructor(
 
             result.onSuccess{
                 clearForm()
-                emitEffect(CreateCompanyEffect.ShowMessage("Empresa creada correctamente"))
+                emitEffect(CreateCompanyEffect.ShowMessage(R.string.create_company_success))
                 emitEffect(CreateCompanyEffect.NavigateToBack)
-            }.onFailure { emitEffect(CreateCompanyEffect.ShowMessage("Error al guardar la empresa")) }
+            }.onFailure { emitEffect(CreateCompanyEffect.ShowMessage(R.string.create_company_error)) }
         }
     }
 

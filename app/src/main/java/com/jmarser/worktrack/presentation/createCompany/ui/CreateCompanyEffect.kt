@@ -1,5 +1,10 @@
 package com.jmarser.worktrack.presentation.createCompany.ui
 
+import androidx.annotation.StringRes
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import com.jmarser.worktrack.R
+
 /**
  * Project: WorkTrack
  * File: CreateCompanyEffect.kt
@@ -10,5 +15,6 @@ package com.jmarser.worktrack.presentation.createCompany.ui
 sealed interface CreateCompanyEffect {
     object NavigateToBack: CreateCompanyEffect
     object NavigateToSettings: CreateCompanyEffect
-    data class ShowMessage(val message: String): CreateCompanyEffect
+    data class ShowMessage (@StringRes val resId: Int): CreateCompanyEffect
 }
+
