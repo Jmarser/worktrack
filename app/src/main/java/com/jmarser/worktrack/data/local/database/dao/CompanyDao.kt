@@ -34,6 +34,9 @@ interface CompanyDao {
     @Query("SELECT * FROM company WHERE id = :id")
     fun getCompanyById(id: Long): Flow<CompanyEntity?>
 
+    @Query("SELECT COUNT(*) FROM company WHERE name = :name")
+    suspend fun existsByName(name: String): Int
+
     @Query("SELECT * FROM company ORDER BY name ASC")
     fun getAllCompanies(): Flow<List<CompanyEntity>>
 

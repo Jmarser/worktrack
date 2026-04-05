@@ -16,10 +16,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.presentation.components.AppBar
 import com.jmarser.worktrack.core.presentation.components.AppImages
 import com.jmarser.worktrack.core.presentation.components.CardWithShimmer
@@ -28,12 +30,14 @@ import com.jmarser.worktrack.core.presentation.screens.ErrorScreen
 import com.jmarser.worktrack.core.presentation.screens.LoadingScreen
 import com.jmarser.worktrack.presentation.companyList.components.CompanyItem
 import com.jmarser.worktrack.presentation.companyList.components.HeaderResumenSection
+import com.jmarser.worktrack.presentation.error.asString
 import com.jmarser.worktrack.ui.theme.MyAppTheme
 
 @Composable
 fun CompanyListScreen(
     modifier: Modifier = Modifier,
-    viewModel: CompanyListViewModel = hiltViewModel()
+    viewModel: CompanyListViewModel = hiltViewModel(),
+    navigateToCreateCompany: () -> Unit
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -42,7 +46,7 @@ fun CompanyListScreen(
     LaunchedEffect(Unit) {
         viewModel.uiEffect.collect { effect ->
             when (effect) {
-                CompanyListEffect.NavigateToCreateCompany -> TODO()
+                CompanyListEffect.NavigateToCreateCompany -> navigateToCreateCompany()
                 is CompanyListEffect.NavigateToDeleteCompany -> TODO()
                 is CompanyListEffect.NavigateToDetailsCompany -> TODO()
                 is CompanyListEffect.NavigateToEditCompany -> TODO()
@@ -57,7 +61,14 @@ fun CompanyListScreen(
         topBar = {
             AppBar(
                 modifier = Modifier,
-                title = "Empresas",
+                title = stringResource(R.string.companies),
+                showOnBack = false,
+                showSettings = true,
+                showAddIcon = true,
+                showFilters = false,
+                onCreatedSelected = {
+                    viewModel.onEvent(CompanyListEvent.onClickCreateCompany)
+                }
             )
         },
         snackbarHost = {
@@ -65,49 +76,43 @@ fun CompanyListScreen(
         }
     ) { paddingValues ->
 
+        val contentModifier = Modifier
+            .padding(paddingValues)
+            .fillMaxSize()
+
         when (val state = uiState) {
             CompanyListState.Loading -> {
                 CompanyListLoading(
-                    modifier = Modifier
-                        .padding(paddingValues)
-                        .fillMaxSize()
+                    modifier = contentModifier
                 )
             }
 
             CompanyListState.Empty -> {
-/*                EmptyScreen(
-                    modifier = modifier.padding(paddingValues),
-                    message = "No hay empresas disponibles\nCree una empresa."
-                )*/
-                CompanyListLoading(
-                    modifier = Modifier
-                        .padding(paddingValues)
-                        .fillMaxSize()
+                EmptyScreen(
+                    modifier = contentModifier,
+                    message = stringResource(R.string.list_companies_empty)
                 )
             }
 
             CompanyListState.Idle -> {
                 CompanyListLoading(
-                    modifier = Modifier
-                        .padding(paddingValues)
-                        .fillMaxSize()
+                    modifier = contentModifier
                 )
             }
 
             is CompanyListState.Failure -> {
                 ErrorScreen(
-                    modifier = modifier.padding(paddingValues),
-                    message = state.message,
-                    buttonTxt = "Reintentar",
-                    icon = AppImages.ic_refresh
+                    modifier = contentModifier,
+                    message = state.message.asString(),
+                    buttonTxt = stringResource(R.string.retry),
+                    icon = AppImages.ic_refresh,
+                    onRetryClick = {}
                 )
             }
 
             is CompanyListState.Success -> {
                 Column(
-                    modifier = Modifier
-                        .padding(paddingValues)
-                        .fillMaxSize(),
+                    modifier = contentModifier,
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -145,7 +150,10 @@ fun CompanyListScreen(
 @Composable
 fun CompanyListScreenPreview() {
     MyAppTheme() {
-        CompanyListScreen(modifier = Modifier)
+        CompanyListScreen(
+            modifier = Modifier,
+            navigateToCreateCompany = {}
+        )
     }
 }
 

@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">WorkTrack</string>
+    <string name="retry">Reintentar</string>
+
+    <string name="companies">Empresas</string>
+    <string name="list_companies_empty">No hay empresas disponibles.\nCree una empresa.</string>
+
+    <string name="general_summary">Resumen general</string>
+    <string name="my_contributions">Mis colaboraciones</string>
+    <string name="active_companies">Empresas activas</string>
+    <string name="days_outstanding">Días pendientes de cobro</string>
+    <string name="amount_due">Monto pendiente de cobro</string>
+    
+    <string name="error_unknown">Ha ocurrido un error desconocido.</string>
+    <string name="full_price_relation_error">El precio de día completo no puede ser menor al de media jornada.</string>
+    <string name="half_price_relation_error">El precio de media jornada no puede ser mayor al del día completo.</string>
+    <string name="invalid_format_error">La cantidad indicada no es correcta</string>
+    <string name="empty_field_error">El campo no puede estar vacío</string>
+
+    // Pantalla Crear empresa
+    <string name="createCompany">Crear empresa</string>
+    <string name="detailsCompany">Detalles de la empresa</string>
+    <string name="nameCompany">Nombre de la empresa</string>
+    <string name="fess">Tarifas</string>
+    <string name="payment_currency">Moneda de pago</string>
+    <string name="full_day">Día completo</string>
+    <string name="half_day">Media jornada</string>
+    <string name="billing_advice">Consejos de facturación</string>
+    <string name="message_billing_advide">Los precios configurados aquí se aplicarán automáticamente a tus nuevos registros de jornada para esta empresa.</string>
+    <string name="save_company">Guardar Empresa</string>
+
+    <string name="name_company_required">El nombre de la empresa es requerido.</string>
+    <string name="company_already_exists">La empresa ya existe.</string>
 </resources>

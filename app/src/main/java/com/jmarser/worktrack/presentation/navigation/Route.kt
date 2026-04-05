@@ -15,4 +15,6 @@ sealed interface Route: NavKey {
 
     @Serializable
     data object CompanyList: Route
+    @Serializable
+    data object CreateCompany: Route
 }

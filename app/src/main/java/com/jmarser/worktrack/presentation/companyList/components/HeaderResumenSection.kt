@@ -9,8 +9,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.presentation.companyList.model.HomeUiModel
 import com.jmarser.worktrack.presentation.companyList.model.mockCompanies
 import com.jmarser.worktrack.presentation.companyList.model.mockHomeUiState
@@ -29,30 +31,30 @@ fun HeaderResumenSection(
         verticalArrangement = Arrangement.spacedBy(appDimens.paddingSmall)
     ) {
         Text(
-            text = "Resumen general",
+            text = stringResource(R.string.general_summary),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onPrimaryContainer
         )
         Text(
-            text = "Mis Colaboraciones",
+            text = stringResource(R.string.my_contributions),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onPrimaryContainer
         )
 
         ResumenCard(
-            title = "Empresas activas",
+            title = stringResource(R.string.active_companies),
             message = data.totalCompanies,
             colorMessage = MaterialTheme.colorScheme.onPrimaryContainer
         )
         ResumenCard(
-            title = "Días pendientes de cobro",
+            title = stringResource(R.string.days_outstanding),
             message = data.globalPendingDays,
             colorMessage = MaterialTheme.colorScheme.error
         )
         ResumenCard(
-            title = "Monto pendiente de cobro",
+            title = stringResource(R.string.amount_due),
             message = "${data.totalPendingAmount} €",
             colorMessage = MaterialTheme.colorScheme.error
         )

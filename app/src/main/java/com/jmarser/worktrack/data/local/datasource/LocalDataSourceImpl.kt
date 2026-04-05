@@ -45,6 +45,10 @@ class LocalDataSourceImpl @Inject constructor(
         return companyDao.getCompanyById(companyId)
     }
 
+    override suspend fun existsCompanyByName(name: String): Boolean {
+        return companyDao.existsByName(name) > 0
+    }
+
     override fun getAllCompanies(): Flow<List<CompanyEntity>> {
         return companyDao.getAllCompanies()
     }

@@ -44,6 +44,12 @@ class CompanyRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun existsCompanyByName(name: String): Boolean {
+        return doWork {
+            localDataSource.existsCompanyByName(name)
+        }
+    }
+
     override fun getCompanyById(id: Long): Flow<Company?> {
         return localDataSource.getCompanyById(id)
             .map { entity -> entity?.toDomain() }.asIoFlow()

@@ -1,5 +1,6 @@
 package com.jmarser.worktrack.presentation.companyList.ui
 
+import com.jmarser.worktrack.core.error.ValidationError
 import com.jmarser.worktrack.presentation.companyList.model.HomeUiModel
 
 /**
@@ -17,5 +18,5 @@ sealed class CompanyListState {
     data class Success(
         val data: HomeUiModel
     ): CompanyListState()
-    data class Failure(val message: String): CompanyListState()
+    data class Failure(val message: ValidationError): CompanyListState()
 }

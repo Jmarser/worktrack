@@ -22,7 +22,8 @@ fun ErrorScreen(
     modifier: Modifier = Modifier,
     message: String,
     buttonTxt: String? = null,
-    icon: ImageVector? = null
+    icon: ImageVector? = null,
+    onRetryClick: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -43,7 +44,9 @@ fun ErrorScreen(
                 iconStart = icon,
                 label = buttonTxt,
                 value = Unit,
-                onClick = {}
+                onClick = {
+                    onRetryClick()
+                }
             )
         }
     }
@@ -60,7 +63,8 @@ fun ErrorScreenPreview() {
             modifier = Modifier,
             message = "Error inesperado",
             buttonTxt = "Pulsar aquí",
-            icon = AppImages.ic_refresh
+            icon = AppImages.ic_refresh,
+            onRetryClick = {}
         )
     }
 }

@@ -23,6 +23,7 @@ interface LocalDataSource {
     suspend fun updateCompany(company: CompanyEntity)
     suspend fun deleteCompany(company: CompanyEntity)
     fun getCompanyById(companyId: Long): Flow<CompanyEntity?>
+    suspend fun existsCompanyByName(name: String): Boolean
     fun getAllCompanies(): Flow<List<CompanyEntity>>
     fun getCompanyWithWorkDays(companyId: Long): Flow<CompanyWithWorkDays?>
     fun getCompaniesSummary(): Flow<List<CompanySummaryEntity>>

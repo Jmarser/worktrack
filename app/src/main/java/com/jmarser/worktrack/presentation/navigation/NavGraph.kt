@@ -7,6 +7,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.jmarser.worktrack.presentation.companyList.ui.CompanyListScreen
+import com.jmarser.worktrack.presentation.createCompany.ui.CreateCompanyScreen
 
 /**
  * Project: WorkTrack
@@ -22,7 +23,18 @@ fun NavGraph(){
 
     val entries = entryProvider <NavKey>{
         entry <Route.CompanyList>{
-            CompanyListScreen()
+            CompanyListScreen(
+                navigateToCreateCompany = {
+                    backStack.add(Route.CreateCompany)
+                }
+            )
+        }
+        entry <Route.CreateCompany>{
+            CreateCompanyScreen(
+                navigateToBack = {
+                    backStack.removeLastOrNull()
+                }
+            )
         }
     }
 

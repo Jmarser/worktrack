@@ -2,6 +2,7 @@ package com.jmarser.worktrack.presentation.companyList.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jmarser.worktrack.core.error.ValidationError
 import com.jmarser.worktrack.domain.useCase.GetHomeDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -61,7 +62,7 @@ class CompanyListViewModel @Inject constructor(
                 }
             }
             .catch {
-                _uiState.value = CompanyListState.Failure("No hay empresas disponibles")
+                _uiState.value = CompanyListState.Failure(ValidationError.ErrorUnknown)
             }
             .launchIn(viewModelScope)
     }

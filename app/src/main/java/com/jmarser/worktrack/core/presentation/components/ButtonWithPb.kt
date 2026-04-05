@@ -64,7 +64,7 @@ fun <T> ButtonWithPb(
                     .padding(horizontal = appDimens.paddingMedium),
                 shape = shape,
                 onClick = { onClick(value) },
-                enabled = !isLoading
+                enabled = isEnabled
             ) {
                 Row(
                     modifier = Modifier,
