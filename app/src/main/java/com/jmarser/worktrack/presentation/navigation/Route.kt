@@ -16,5 +16,5 @@ sealed interface Route: NavKey {
     @Serializable
     data object CompanyList: Route
     @Serializable
-    data object CreateCompany: Route
+    data class CreateCompany(val companyId: Long = -1L): Route
 }

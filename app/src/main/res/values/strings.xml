@@ -30,6 +30,11 @@
     <string name="save_company">Guardar Empresa</string>
     <string name="create_company_success">La empresa se ha creado correctamente.</string>
     <string name="create_company_error">Ha ocurrido un error al crear la empresa.</string>
+    <string name="update_company">Actualizar empresa</string>
+    <string name="save_changes">Guardar cambios</string>
+    <string name="changes_saved_successfully">Cambios guardados correctamente.</string>
+    <string name="error_saving_changes">Error al guardar los cambios.</string>
+    <string name="company_not_found">Compañía no encontrada</string>
 
     <string name="name_company_required">El nombre de la empresa es requerido.</string>
     <string name="company_already_exists">La empresa ya existe.</string>

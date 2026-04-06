@@ -59,11 +59,15 @@ import com.jmarser.worktrack.ui.theme.appDimens
 @Composable
 fun CreateCompanyScreen(
     modifier: Modifier = Modifier,
-    viewModel: CreateCompanyViewModel = hiltViewModel(),
+    companyId: Long = -1L,
+    viewModel: CreateCompanyViewModel = hiltViewModel<CreateCompanyViewModel, CreateCompanyViewModel.Factory>(
+        key = companyId.toString()
+    ){factory ->
+        factory.create(companyId)
+    },
     navigateToBack: () -> Unit
 ) {
 
-    val context = LocalContext.current
     val snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }
     val formState by viewModel.formState.collectAsStateWithLifecycle()
 
@@ -71,6 +75,7 @@ fun CreateCompanyScreen(
     val currencies = CurrencyType.entries
     val selectedCurrency = remember(formState.currencyType) {formState.currencyType }
     var pendingMessageResId by remember{mutableStateOf(0)}
+    val isEdit = companyId != -1L
 
     LaunchedEffect(Unit) {
         viewModel.uiEffect.collect { effect ->
@@ -98,7 +103,7 @@ fun CreateCompanyScreen(
         topBar = {
             AppBar(
                 modifier = Modifier,
-                title = stringResource(R.string.createCompany),
+                title = stringResource(if (isEdit) R.string.update_company else R.string.createCompany),
                 showOnBack = true,
                 showFilters = false,
                 showSettings = true,
@@ -355,7 +360,7 @@ fun CreateCompanyScreen(
                 modifier = Modifier
                     .padding(appDimens.iconSizeLarge)
                     .fillMaxWidth(),
-                label = stringResource(R.string.save_company),
+                label = stringResource(if (isEdit) R.string.save_changes else R.string.save_company),
                 iconStart = AppImages.ic_save,
                 contentDescription = "guardar empresa",
                 isEnabled = formState.isButtonEnabled,
@@ -378,6 +383,7 @@ fun CreateCompanyScreenPreview() {
     MyAppTheme() {
         CreateCompanyScreen(
             modifier = Modifier,
+            companyId = -1L,
             navigateToBack = {}
         )
     }

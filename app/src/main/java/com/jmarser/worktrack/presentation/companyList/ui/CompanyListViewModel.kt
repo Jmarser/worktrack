@@ -41,7 +41,7 @@ class CompanyListViewModel @Inject constructor(
         when(event){
             CompanyListEvent.onClickCreateCompany -> emitEffect(CompanyListEffect.NavigateToCreateCompany)
             is CompanyListEvent.onClickDeleteCompany -> emitEffect(CompanyListEffect.NavigateToDeleteCompany(0))
-            is CompanyListEvent.onClickEditCompany -> emitEffect(CompanyListEffect.NavigateToEditCompany(0))
+            is CompanyListEvent.onClickEditCompany -> emitEffect(CompanyListEffect.NavigateToEditCompany(event.companyId))
             is CompanyListEvent.onClickNavigateToDetails -> emitEffect(CompanyListEffect.NavigateToDetailsCompany(0))
             is CompanyListEvent.ShowSnackbar -> emitEffect(CompanyListEffect.ShowMessage(event.message))
         }

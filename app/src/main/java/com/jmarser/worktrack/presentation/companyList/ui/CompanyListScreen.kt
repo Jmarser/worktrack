@@ -1,6 +1,7 @@
 package com.jmarser.worktrack.presentation.companyList.ui
 
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,7 +38,8 @@ import com.jmarser.worktrack.ui.theme.MyAppTheme
 fun CompanyListScreen(
     modifier: Modifier = Modifier,
     viewModel: CompanyListViewModel = hiltViewModel(),
-    navigateToCreateCompany: () -> Unit
+    navigateToCreateCompany: () -> Unit,
+    navigateToEditCompany: (Long) -> Unit
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -49,7 +51,9 @@ fun CompanyListScreen(
                 CompanyListEffect.NavigateToCreateCompany -> navigateToCreateCompany()
                 is CompanyListEffect.NavigateToDeleteCompany -> TODO()
                 is CompanyListEffect.NavigateToDetailsCompany -> TODO()
-                is CompanyListEffect.NavigateToEditCompany -> TODO()
+                is CompanyListEffect.NavigateToEditCompany -> {
+                    navigateToEditCompany(effect.companyId)
+                }
                 is CompanyListEffect.ShowMessage -> {
                     snackbarHostState.showSnackbar(effect.message)
                 }
@@ -125,10 +129,11 @@ fun CompanyListScreen(
                             items = state.data.companies,
                             key = { it.id }
                         ) { company ->
+                            Log.e("LISTACOMPAÑIAS", "El id de la compañía es: ${company.id}")
                             CompanyItem(
                                 company = company,
                                 onEditClick = { companyId ->
-
+                                    viewModel.onEvent(CompanyListEvent.onClickEditCompany(companyId))
                                 },
                                 onDeleteClick = { companyId ->
 
@@ -152,7 +157,8 @@ fun CompanyListScreenPreview() {
     MyAppTheme() {
         CompanyListScreen(
             modifier = Modifier,
-            navigateToCreateCompany = {}
+            navigateToCreateCompany = {},
+            navigateToEditCompany = {}
         )
     }
 }
