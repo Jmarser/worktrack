@@ -31,6 +31,9 @@ interface CompanyDao {
     @Delete
     suspend fun deleteCompany(company: CompanyEntity)
 
+    @Query("DELETE FROM company WHERE id = :companyId")
+    suspend fun deleteCompanyById(companyId: Long)
+
     @Query("SELECT * FROM company WHERE id = :id")
     fun getCompanyById(id: Long): Flow<CompanyEntity?>
 
@@ -42,7 +45,7 @@ interface CompanyDao {
 
     @Transaction
     @Query("SELECT * FROM company WHERE id = :companyId")
-    fun getComapnyWithWorksDays(companyId: Long): Flow<CompanyWithWorkDays?>
+    fun getCompanyWithWorksDays(companyId: Long): Flow<CompanyWithWorkDays?>
 
     @Query("""SELECT 
         c.id as id, 

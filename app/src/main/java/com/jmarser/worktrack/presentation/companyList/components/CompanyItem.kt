@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceLarge
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceNormal
+import com.jmarser.worktrack.domain.model.Company
 import com.jmarser.worktrack.domain.model.CompanySummary
 import com.jmarser.worktrack.presentation.companyList.model.mockCompanySummary
 import com.jmarser.worktrack.ui.theme.MyAppTheme
@@ -42,7 +43,7 @@ fun CompanyItem(
     modifier: Modifier = Modifier,
     company: CompanySummary,
     onEditClick: (Long) -> Unit,
-    onDeleteClick: (Long) -> Unit,
+    onDeleteClick: (CompanySummary) -> Unit,
 ) {
 
     val bandera = company.daysPending > 0
@@ -137,7 +138,7 @@ fun CompanyItem(
                     }
                     TextButton(
                         onClick = {
-                            onDeleteClick(company.id)
+                            onDeleteClick(company)
                         }
                     ) {
                         Row(

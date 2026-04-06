@@ -1,5 +1,7 @@
 package com.jmarser.worktrack.presentation.companyList.ui
 
+import androidx.annotation.StringRes
+
 /**
  * Project: WorkTrack
  * File: CompanyListEffect.kt
@@ -13,5 +15,5 @@ sealed interface CompanyListEffect {
     data class NavigateToEditCompany(val companyId: Long): CompanyListEffect
     data class NavigateToDeleteCompany(val companyId: Long): CompanyListEffect
     object NavigateToCreateCompany: CompanyListEffect
-    data class ShowMessage(val message: String): CompanyListEffect
+    data class ShowMessage(@StringRes val resId: Int): CompanyListEffect
 }

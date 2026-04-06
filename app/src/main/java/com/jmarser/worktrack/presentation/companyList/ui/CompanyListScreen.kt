@@ -14,21 +14,21 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.presentation.components.AppBar
 import com.jmarser.worktrack.core.presentation.components.AppImages
-import com.jmarser.worktrack.core.presentation.components.CardWithShimmer
+import com.jmarser.worktrack.core.presentation.components.CustomConfirmDialog
 import com.jmarser.worktrack.core.presentation.screens.EmptyScreen
 import com.jmarser.worktrack.core.presentation.screens.ErrorScreen
-import com.jmarser.worktrack.core.presentation.screens.LoadingScreen
 import com.jmarser.worktrack.presentation.companyList.components.CompanyItem
 import com.jmarser.worktrack.presentation.companyList.components.HeaderResumenSection
 import com.jmarser.worktrack.presentation.error.asString
@@ -44,6 +44,8 @@ fun CompanyListScreen(
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }
+    val deleteDialogState by viewModel.deleteDialogState.collectAsStateWithLifecycle()
+    var pendingMessageResId by remember { mutableStateOf(0) }
 
     LaunchedEffect(Unit) {
         viewModel.uiEffect.collect { effect ->
@@ -55,10 +57,36 @@ fun CompanyListScreen(
                     navigateToEditCompany(effect.companyId)
                 }
                 is CompanyListEffect.ShowMessage -> {
-                    snackbarHostState.showSnackbar(effect.message)
+                    pendingMessageResId = effect.resId
                 }
             }
         }
+    }
+
+    val messageToShow = if (pendingMessageResId != 0) stringResource(pendingMessageResId) else ""
+    LaunchedEffect(pendingMessageResId) {
+        if (pendingMessageResId != 0){
+            snackbarHostState.showSnackbar(messageToShow)
+            pendingMessageResId = 0
+        }
+    }
+
+    deleteDialogState?.let{companySummary ->
+        CustomConfirmDialog(
+            textTitle = stringResource(R.string.delete_company),
+            textMessage = stringResource(R.string.msg_delete_company, companySummary.name),
+            textBtnConfirm = stringResource(R.string.delete),
+            textBtnCancel = stringResource(R.string.cancel),
+            onConfirm = {
+                viewModel.onEvent(CompanyListEvent.onClickDeleteCompany(companySummary.id))
+            },
+            onCancel = {
+                viewModel.onEvent(CompanyListEvent.ToggleDeleteDialogState(null))
+            },
+            onDismiss = {
+                viewModel.onEvent(CompanyListEvent.ToggleDeleteDialogState(null))
+            }
+        )
     }
 
     Scaffold(
@@ -110,7 +138,9 @@ fun CompanyListScreen(
                     message = state.message.asString(),
                     buttonTxt = stringResource(R.string.retry),
                     icon = AppImages.ic_refresh,
-                    onRetryClick = {}
+                    onRetryClick = {
+                        viewModel.onEvent(CompanyListEvent.onRetry)
+                    }
                 )
             }
 
@@ -135,8 +165,8 @@ fun CompanyListScreen(
                                 onEditClick = { companyId ->
                                     viewModel.onEvent(CompanyListEvent.onClickEditCompany(companyId))
                                 },
-                                onDeleteClick = { companyId ->
-
+                                onDeleteClick = { companySummary ->
+                                    viewModel.onEvent(CompanyListEvent.ToggleDeleteDialogState(companySummary))
                                 }
                             )
                         }

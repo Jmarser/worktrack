@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">WorkTrack</string>
     <string name="retry">Reintentar</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Aceptar</string>
+    <string name="delete_company">Eliminar empresa</string>
+    <string name="msg_delete_company">¿Seguro que quiere eliminar la empresa %s?</string>
 
     <string name="companies">Empresas</string>
     <string name="list_companies_empty">No hay empresas disponibles.\nCree una empresa.</string>
@@ -35,6 +40,8 @@
     <string name="changes_saved_successfully">Cambios guardados correctamente.</string>
     <string name="error_saving_changes">Error al guardar los cambios.</string>
     <string name="company_not_found">Compañía no encontrada</string>
+    <string name="delete_company_successfully">Compañía eliminada correctamente.</string>
+    <string name="error_delete_company">Error al eliminar la compañía.</string>
 
     <string name="name_company_required">El nombre de la empresa es requerido.</string>
     <string name="company_already_exists">La empresa ya existe.</string>

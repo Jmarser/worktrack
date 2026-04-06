@@ -1,7 +1,6 @@
 package com.jmarser.worktrack.presentation.createCompany.ui
 
 import android.util.Log
-import androidx.compose.animation.core.withInfiniteAnimationFrameMillis
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jmarser.worktrack.R
@@ -217,7 +216,7 @@ class CreateCompanyViewModel @AssistedInject constructor(
         Log.e("LOADCOMPANY", "El id de la compañia es: ${companyId}")
         viewModelScope.launch {
             getCompanyByIdUseCase(companyId).take(1).collect { company ->
-                if (company != null){
+                if (company != null) {
                     _formState.update { state ->
                         state.copy(
                             companyName = company.name,
@@ -230,7 +229,7 @@ class CreateCompanyViewModel @AssistedInject constructor(
                         )
                     }
                     validateSubmit()
-                }else{
+                } else {
                     Log.e("LOADCOMPANY", "compañía no encontrada")
                     emitEffect(CreateCompanyEffect.ShowMessage(R.string.company_not_found))
                     delay(100)

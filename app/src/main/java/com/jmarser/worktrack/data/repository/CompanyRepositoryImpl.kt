@@ -38,7 +38,7 @@ class CompanyRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun deleteComapny(company: Company) {
+    override suspend fun deleteCompany(company: Company) {
         return doWork {
             localDataSource.deleteCompany(company.toEntity())
         }
@@ -47,6 +47,12 @@ class CompanyRepositoryImpl @Inject constructor(
     override suspend fun existsCompanyByName(name: String): Boolean {
         return doWork {
             localDataSource.existsCompanyByName(name)
+        }
+    }
+
+    override suspend fun deleteCompanyById(comapnyId: Long) {
+        return doWork {
+            localDataSource.deleteCompanyById(comapnyId)
         }
     }
 

@@ -49,12 +49,16 @@ class LocalDataSourceImpl @Inject constructor(
         return companyDao.existsByName(name) > 0
     }
 
+    override suspend fun deleteCompanyById(companyId: Long) {
+        return companyDao.deleteCompanyById(companyId)
+    }
+
     override fun getAllCompanies(): Flow<List<CompanyEntity>> {
         return companyDao.getAllCompanies()
     }
 
     override fun getCompanyWithWorkDays(companyId: Long): Flow<CompanyWithWorkDays?> {
-        return companyDao.getComapnyWithWorksDays(companyId)
+        return companyDao.getCompanyWithWorksDays(companyId)
     }
 
     override fun getCompaniesSummary(): Flow<List<CompanySummaryEntity>> {

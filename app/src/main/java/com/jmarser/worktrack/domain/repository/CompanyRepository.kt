@@ -1,6 +1,5 @@
 package com.jmarser.worktrack.domain.repository
 
-import com.jmarser.worktrack.data.local.database.entity.CompanyEntity
 import com.jmarser.worktrack.domain.model.Company
 import com.jmarser.worktrack.domain.model.CompanyComplete
 import com.jmarser.worktrack.domain.model.CompanySummary
@@ -17,8 +16,9 @@ interface CompanyRepository {
 
     suspend fun addCompany(company: Company): Long
     suspend fun updateCompany(company: Company)
-    suspend fun deleteComapny(company: Company)
+    suspend fun deleteCompany(company: Company)
     suspend fun existsCompanyByName(name: String): Boolean
+    suspend fun deleteCompanyById(comapnyId: Long)
     fun getCompanyById(id: Long): Flow<Company?>
     fun getAllCompanies(): Flow<List<Company>>
     fun getCompanyComplete(id: Long): Flow<CompanyComplete?>

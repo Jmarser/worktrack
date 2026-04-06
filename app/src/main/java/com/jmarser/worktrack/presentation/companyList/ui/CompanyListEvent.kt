@@ -1,5 +1,7 @@
 package com.jmarser.worktrack.presentation.companyList.ui
 
+import com.jmarser.worktrack.domain.model.CompanySummary
+
 /**
  * Project: WorkTrack
  * File: CompanyListEvent.kt
@@ -10,8 +12,9 @@ package com.jmarser.worktrack.presentation.companyList.ui
 sealed interface CompanyListEvent {
 
     object onClickCreateCompany: CompanyListEvent
+    object onRetry: CompanyListEvent
     data class onClickEditCompany(val companyId: Long): CompanyListEvent
     data class onClickDeleteCompany(val companyId: Long): CompanyListEvent
     data class onClickNavigateToDetails(val companyId: Long): CompanyListEvent
-    data class ShowSnackbar(val message: String): CompanyListEvent
+    data class ToggleDeleteDialogState(val companySummary: CompanySummary?): CompanyListEvent
 }
