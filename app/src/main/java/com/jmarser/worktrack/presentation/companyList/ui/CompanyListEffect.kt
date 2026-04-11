@@ -13,7 +13,6 @@ sealed interface CompanyListEffect {
 
     data class NavigateToDetailsCompany(val companyId: Long): CompanyListEffect
     data class NavigateToEditCompany(val companyId: Long): CompanyListEffect
-    data class NavigateToDeleteCompany(val companyId: Long): CompanyListEffect
     object NavigateToCreateCompany: CompanyListEffect
     data class ShowMessage(@StringRes val resId: Int): CompanyListEffect
 }

@@ -45,4 +45,11 @@
 
     <string name="name_company_required">El nombre de la empresa es requerido.</string>
     <string name="company_already_exists">La empresa ya existe.</string>
+
+    // Pantalla de detalles empresa
+    <string name="days_worked">Días trabajados</string>
+    <string name="recent_activity">Actividad reciente</string>
+    <string name="pending_upper">PENDIENTE</string>
+    <string name="paid_upper">COBRADO</string>
+    <string name="unknown_work">Trabajo desconocido</string>
 </resources>

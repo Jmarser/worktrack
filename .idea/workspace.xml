@@ -10,15 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c79acd33-9c5e-4b63-a28a-9a1a472d7866" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/useCase/DeleteCompanyUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/WorkTrack.app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/EconomicValue.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/ResumenDetailsCard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/ResumenWorkDay.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/StatusBox.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetails.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetailsViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/mocks/MocksPreview.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/utils/DateExtensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/repository/CompanyRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/data/repository/CompanyRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/repository/CompanyRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/repository/CompanyRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/components/CompanyItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/components/CompanyItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListEffect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListEffect.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/createCompany/ui/CreateCompanyViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/createCompany/ui/CreateCompanyViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/navigation/NavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/navigation/NavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/navigation/Route.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/navigation/Route.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +75,8 @@
         <option value="Kotlin Enum" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Object" />
-        <option value="File composable" />
         <option value="Kotlin Interface" />
+        <option value="File composable" />
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
@@ -110,6 +128,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\trabajosAndroid\WorkTrack\app\src\main\res\drawable" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.jmarser.worktrack.presentation.companyList.components" />
     </key>
   </component>
   <component name="RunManager">
@@ -212,12 +233,12 @@
       <map>
         <entry key="com.jmarser.worktrack">
           <value>
-            <CheckInfo lastCheckTimestamp="1775472443738" />
+            <CheckInfo lastCheckTimestamp="1775925873822" />
           </value>
         </entry>
         <entry key="com.jmarser.worktrack.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1775472443742" />
+            <CheckInfo lastCheckTimestamp="1775925873826" />
           </value>
         </entry>
       </map>

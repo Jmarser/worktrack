@@ -2,6 +2,7 @@ package com.jmarser.worktrack.presentation.companyList.components
 
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,6 +45,7 @@ fun CompanyItem(
     company: CompanySummary,
     onEditClick: (Long) -> Unit,
     onDeleteClick: (CompanySummary) -> Unit,
+    onDetailsClick: (Long) -> Unit
 ) {
 
     val bandera = company.daysPending > 0
@@ -70,6 +72,9 @@ fun CompanyItem(
                 .fillMaxHeight()
                 .offset(x = appDimens.paddingNormal)
                 .padding(end = appDimens.paddingNormal)
+                .clickable{
+                    onDetailsClick(company.id)
+                }
                 .background(
                     color = Color.Transparent
                 ),
@@ -176,7 +181,8 @@ fun CompanyItemPreview() {
             modifier = Modifier,
             company = mockCompanySummary,
             onEditClick = {},
-            onDeleteClick = {}
+            onDeleteClick = {},
+            onDetailsClick = {}
         )
     }
 }

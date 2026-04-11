@@ -39,7 +39,8 @@ fun CompanyListScreen(
     modifier: Modifier = Modifier,
     viewModel: CompanyListViewModel = hiltViewModel(),
     navigateToCreateCompany: () -> Unit,
-    navigateToEditCompany: (Long) -> Unit
+    navigateToEditCompany: (Long) -> Unit,
+    navigateToCompanyDetails: (Long) -> Unit
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -51,8 +52,7 @@ fun CompanyListScreen(
         viewModel.uiEffect.collect { effect ->
             when (effect) {
                 CompanyListEffect.NavigateToCreateCompany -> navigateToCreateCompany()
-                is CompanyListEffect.NavigateToDeleteCompany -> TODO()
-                is CompanyListEffect.NavigateToDetailsCompany -> TODO()
+                is CompanyListEffect.NavigateToDetailsCompany -> navigateToCompanyDetails(effect.companyId)
                 is CompanyListEffect.NavigateToEditCompany -> {
                     navigateToEditCompany(effect.companyId)
                 }
@@ -167,6 +167,9 @@ fun CompanyListScreen(
                                 },
                                 onDeleteClick = { companySummary ->
                                     viewModel.onEvent(CompanyListEvent.ToggleDeleteDialogState(companySummary))
+                                },
+                                onDetailsClick = {companyId ->
+                                    viewModel.onEvent(CompanyListEvent.onClickNavigateToDetails(companyId))
                                 }
                             )
                         }
@@ -188,7 +191,8 @@ fun CompanyListScreenPreview() {
         CompanyListScreen(
             modifier = Modifier,
             navigateToCreateCompany = {},
-            navigateToEditCompany = {}
+            navigateToEditCompany = {},
+            navigateToCompanyDetails = {}
         )
     }
 }

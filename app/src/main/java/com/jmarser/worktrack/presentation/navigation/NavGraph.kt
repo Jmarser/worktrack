@@ -7,6 +7,7 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import com.jmarser.worktrack.presentation.companyDetails.ui.CompanyDetails
 import com.jmarser.worktrack.presentation.companyList.ui.CompanyListScreen
 import com.jmarser.worktrack.presentation.createCompany.ui.CreateCompanyScreen
 
@@ -31,6 +32,9 @@ fun NavGraph(){
                 navigateToEditCompany = {id ->
                     Log.e("NAVEGACION_HACIA_EDITAR", "El id pasado para editar es: ${id}")
                     backStack.add(Route.CreateCompany(companyId = id))
+                },
+                navigateToCompanyDetails = {id ->
+                    backStack.add(Route.CompanyDetails(companyId = id))
                 }
             )
         }
@@ -41,6 +45,16 @@ fun NavGraph(){
                 navigateToBack = {
                     backStack.removeLastOrNull()
                 }
+            )
+        }
+        entry <Route.CompanyDetails>{route ->
+            CompanyDetails(
+                companyId = route.companyId,
+                navigateToBack = {
+                    backStack.removeLastOrNull()
+                },
+                navigateToWorkDayDetails = {},
+                navigateToCreateWorkDay = {}
             )
         }
     }

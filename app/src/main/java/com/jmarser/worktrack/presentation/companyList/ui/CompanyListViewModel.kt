@@ -50,12 +50,12 @@ class CompanyListViewModel @Inject constructor(
     fun onEvent(event: CompanyListEvent) {
         when (event) {
             CompanyListEvent.onClickCreateCompany -> emitEffect(NavigateToCreateCompany)
-            is CompanyListEvent.onClickDeleteCompany -> {
-                deleteCompany(event.companyId)
-            }
+            is CompanyListEvent.onClickDeleteCompany -> {deleteCompany(event.companyId)}
 
             is CompanyListEvent.onClickEditCompany -> emitEffect(NavigateToEditCompany(event.companyId))
-            is CompanyListEvent.onClickNavigateToDetails -> emitEffect(NavigateToDetailsCompany(0))
+            is CompanyListEvent.onClickNavigateToDetails -> emitEffect(
+                NavigateToDetailsCompany(event.companyId))
+
             is CompanyListEvent.ToggleDeleteDialogState -> {
                 _deleteDialogState.value = event.companySummary
             }
