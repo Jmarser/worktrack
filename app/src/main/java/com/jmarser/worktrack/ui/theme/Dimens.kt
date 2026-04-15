@@ -39,6 +39,9 @@ data class AppDimens(
     val cardElevationSmall: Dp = 1.dp,
     val cardElevationNormal: Dp = 3.dp,
     val cardElevationLarge: Dp = 6.dp,
+    val cardHeightNormal: Dp = 50.dp,
+    val cardHeightMedium: Dp = 75.dp,
+    val cardHeightLarge: Dp = 100.dp,
     val logoSize: Dp = 250.dp
 )
 

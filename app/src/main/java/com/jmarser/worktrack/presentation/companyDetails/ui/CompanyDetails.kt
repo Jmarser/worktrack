@@ -15,18 +15,29 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.presentation.components.AppBar
+import com.jmarser.worktrack.core.presentation.components.AppImages
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceNormal
+import com.jmarser.worktrack.core.presentation.screens.EmptyScreen
+import com.jmarser.worktrack.core.presentation.screens.ErrorScreen
+import com.jmarser.worktrack.core.presentation.screens.LoadingScreen
+import com.jmarser.worktrack.presentation.companyDetails.components.EmptyWorkDays
+import com.jmarser.worktrack.presentation.companyDetails.components.LoadingCompanyDetails
 import com.jmarser.worktrack.presentation.companyDetails.components.ResumenDetailsCard
 import com.jmarser.worktrack.presentation.companyDetails.components.ResumenWorkDay
+import com.jmarser.worktrack.presentation.companyList.ui.CompanyListEvent
+import com.jmarser.worktrack.presentation.error.asString
 import com.jmarser.worktrack.presentation.mocks.CompanyMocks.workDaysCompleteList
 import com.jmarser.worktrack.presentation.utils.toFullMonthYear
 import com.jmarser.worktrack.ui.theme.MyAppTheme
@@ -39,7 +50,7 @@ fun CompanyDetails(
     companyId: Long,
     viewModel: CompanyDetailsViewModel = hiltViewModel<CompanyDetailsViewModel, CompanyDetailsViewModel.Factory>(
         key = companyId.toString()
-    ){factory ->
+    ) { factory ->
         factory.create(companyId)
     },
     navigateToBack: () -> Unit,
@@ -48,6 +59,7 @@ fun CompanyDetails(
 ) {
 
     val snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -77,53 +89,94 @@ fun CompanyDetails(
             .padding(paddingValues)
             .fillMaxSize()
 
-        Column(
-            modifier = contentModifier
-        ) {
-            ResumenDetailsCard(
-                modifier = Modifier
-                    .padding(appDimens.paddingMedium)
-            )
+        when (val state = uiState) {
+            CompanyDetailsState.Idle, CompanyDetailsState.Loading -> {
+                LoadingCompanyDetails(modifier = contentModifier)
+            }
 
-            VerticalSpaceNormal()
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        horizontal = appDimens.paddingMedium,
-                        vertical = appDimens.paddingNormal
-                    ),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.recent_activity),
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
+            CompanyDetailsState.Empty -> {
+                EmptyScreen(
+                    modifier = contentModifier,
+                    title = "La empresa no está disponible",
+                    description = "Empieza agregando tu primera empresa.",
+                    iconScreen = AppImages.ic_company,
+                    buttonText = "Crear ahora",
+                    onButtonClick = {
 
-                    )
-                Text(
-                    text = Date().toFullMonthYear(),
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
+                    }
                 )
             }
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth(),
-            ) {
-                items(
-                    items = workDaysCompleteList
-                ){workDay ->
-                    ResumenWorkDay(
-                        workDay = workDay.workDay
-                    )
+
+            is CompanyDetailsState.Failure -> {
+                ErrorScreen(
+                    modifier = contentModifier,
+                    title = state.message.asString(),
+                    description = "No hemos podido cargar los datos de la empresa",
+                    buttonTxt = stringResource(R.string.retry),
+                    iconButton = AppImages.ic_refresh,
+                    onRetryClick = {
+
+                    }
+                )
+            }
+
+            is CompanyDetailsState.Success -> {
+                LazyColumn(
+                    modifier = contentModifier
+                ) {
+                    item {
+                        ResumenDetailsCard(
+                            modifier = Modifier
+                                .padding(appDimens.paddingMedium),
+                            companyName = state.data.company.name,
+                            totalDays = state.totalDays,
+                            pendingDays = state.totalDaysPending,
+                            totalPaid = "${state.totalPaid.toString()} €",
+                            pendingAmount = "${state.totalPending.toString()} €"
+                        )
+                    }
+                    item {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    horizontal = appDimens.paddingLarge,
+                                    vertical = appDimens.paddingNormal
+                                ),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = stringResource(R.string.recent_activity),
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = FontWeight.Bold,
+
+                                )
+                            Text(
+                                text = Date().toFullMonthYear(),
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                    }
+                    if (state.data.workDays.isNullOrEmpty()) {
+                        item {
+                            EmptyWorkDays()
+                        }
+                    } else {
+                        items(
+                            items = state.data.workDays,
+                            key = { it.workDay.id }
+                        ) { workDay ->
+                            ResumenWorkDay(
+                                workDay = workDay.workDay
+                            )
+                        }
+                    }
                 }
             }
         }
-
-
     }
 }
 

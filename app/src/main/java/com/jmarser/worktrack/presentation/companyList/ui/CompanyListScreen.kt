@@ -122,7 +122,13 @@ fun CompanyListScreen(
             CompanyListState.Empty -> {
                 EmptyScreen(
                     modifier = contentModifier,
-                    message = stringResource(R.string.list_companies_empty)
+                    title = "No hay empresas disponibles",
+                    description = "Empieza agregando tu primera empresa.",
+                    iconScreen = AppImages.ic_company,
+                    buttonText = "Crear ahora",
+                    onButtonClick = {
+                        viewModel.onEvent(CompanyListEvent.onClickCreateCompany)
+                    }
                 )
             }
 
@@ -135,9 +141,10 @@ fun CompanyListScreen(
             is CompanyListState.Failure -> {
                 ErrorScreen(
                     modifier = contentModifier,
-                    message = state.message.asString(),
+                    title = state.message.asString(),
+                    description = "No hemos podido cargar las empresas.",
                     buttonTxt = stringResource(R.string.retry),
-                    icon = AppImages.ic_refresh,
+                    iconButton = AppImages.ic_refresh,
                     onRetryClick = {
                         viewModel.onEvent(CompanyListEvent.onRetry)
                     }
@@ -155,6 +162,7 @@ fun CompanyListScreen(
                         item {
                             HeaderResumenSection(modifier = Modifier, state.data)
                         }
+
                         items(
                             items = state.data.companies,
                             key = { it.id }

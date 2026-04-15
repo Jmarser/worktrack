@@ -52,4 +52,12 @@
     <string name="pending_upper">PENDIENTE</string>
     <string name="paid_upper">COBRADO</string>
     <string name="unknown_work">Trabajo desconocido</string>
+    <string name="no_recent_activity">No hay actividad reciente.</string>
+    <string name="msg_no_recent_activity">Todavía no has registrado ninguna jornada\npara esta empresa</string>
+    <string name="company_upper">EMPRESA</string>
+    <string name="total_paid_upper">TOTAL COBRADO</string>
+    <string name="total_days_upper">TOTAL DÍAS</string>
+    <string name="days_remaining_upper">DÍAS PENDIENTES</string>
+    <string name="company_summary">Resumen empresa</string>
+
 </resources>

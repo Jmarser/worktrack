@@ -18,4 +18,7 @@ sealed interface ValidationError {
     // Pantalla Crear empresa
     data object NameCompanyRequired: ValidationError
     data object CompanyAlreadyExists: ValidationError
+
+    // Pantalla Detalles de la empresa
+    data object CompanyNotFound: ValidationError
 }

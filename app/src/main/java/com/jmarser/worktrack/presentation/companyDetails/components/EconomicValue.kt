@@ -27,13 +27,13 @@ fun EconomicValue(
             text = label,
             style = MaterialTheme.typography.labelSmall,
             fontWeight = FontWeight.Bold,
-            color = if (isError) Color(0xFFC92A2A) else Color.Gray
+            color = if (isError) MaterialTheme.colorScheme.error else Color.Gray
         )
         Text(
             text = value,
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Black,
-            color = if (isError) Color(0xFFC92A2A) else Color.Black
+            color = if (isError) MaterialTheme.colorScheme.error else Color.Black
         )
     }
 }
@@ -49,7 +49,7 @@ fun EconomicValuePreview() {
             modifier = Modifier,
             label = "TOTAL COBRADO",
             value = "250 €",
-            isError = false
+            isError = true
         )
     }
 }

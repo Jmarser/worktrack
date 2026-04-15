@@ -23,5 +23,6 @@ fun ValidationError.asString(): String{
 
         ValidationError.NameCompanyRequired -> stringResource(R.string.name_company_required)
         ValidationError.CompanyAlreadyExists -> stringResource(R.string.company_already_exists)
+        ValidationError.CompanyNotFound -> stringResource(R.string.company_not_found)
     }
 }

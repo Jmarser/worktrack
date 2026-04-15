@@ -28,13 +28,13 @@ val mockHomeUiState = HomeUiModel(
     companies = mockCompanies,
     totalCompanies = "4",
     globalPendingDays = "19",
-    totalPendingAmount = "2820.00 €"
+    totalPendingAmount = "2820.00"
 )
 
 val mockCompanySummary = CompanySummary(
     id = 1,
     name = "Neclima S.L.",
     totalDaysWorked = 25,
-    daysPending = 3,
+    daysPending = 0,
     amountPaid = 450.0
 )

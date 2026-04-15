@@ -10,9 +10,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.presentation.components.CardWithShimmer
 import com.jmarser.worktrack.ui.theme.MyAppTheme
 import com.jmarser.worktrack.ui.theme.appDimens
@@ -30,18 +31,18 @@ fun CompanyListLoading(
         LazyColumn() {
             item {
                 Text(
-                    text = "Resumen Empresas",
+                    text = stringResource(R.string.company_summary),
                     style = MaterialTheme.typography.labelLarge,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
             }
             items(3){
-                CardWithShimmer(cardHeight = 50.dp)
+                CardWithShimmer(cardHeight = appDimens.cardHeightNormal)
             }
 
             items(4){
-                CardWithShimmer(cardHeight = 100.dp)
+                CardWithShimmer(cardHeight = appDimens.cardHeightLarge)
             }
         }
     }

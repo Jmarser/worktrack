@@ -10,6 +10,9 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Apartment
+import androidx.compose.material.icons.outlined.ErrorOutline
+import androidx.compose.material.icons.outlined.EventNote
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -26,6 +29,9 @@ object AppImages {
     val ic_company: ImageVector @Composable get() = Icons.Default.Apartment
     val ic_money: ImageVector @Composable get() = Icons.Default.Money
     val ic_save: ImageVector @Composable get() = Icons.Default.Save
+    val ic_empty_work_day: ImageVector @Composable get() = Icons.Outlined.EventNote
+    val ic_error_screen: ImageVector @Composable get() = Icons.Outlined.ErrorOutline
+
 
 
 }

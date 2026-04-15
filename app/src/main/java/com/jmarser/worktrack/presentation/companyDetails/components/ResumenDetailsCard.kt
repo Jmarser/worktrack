@@ -14,9 +14,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceLarge
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceNormal
 import com.jmarser.worktrack.ui.theme.MyAppTheme
@@ -45,7 +47,7 @@ fun ResumenDetailsCard(
                 .fillMaxWidth()
         ) {
             Text(
-                text = "EMPRESA",
+                text = stringResource(R.string.company_upper),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
                 color = Color.Gray
@@ -54,7 +56,7 @@ fun ResumenDetailsCard(
                 text = companyName,
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF004085)
+                color = MaterialTheme.colorScheme.primary
             )
 
             VerticalSpaceNormal()
@@ -67,7 +69,7 @@ fun ResumenDetailsCard(
                 StatusBox(
                     modifier = Modifier
                         .weight(1f),
-                    label = "TOTAL DÍAS",
+                    label = stringResource(R.string.total_days_upper),
                     value = totalDays.toString(),
                     containerColor = Color(0xFFF1F3F5),
                     contentColor = Color.Black,
@@ -76,10 +78,10 @@ fun ResumenDetailsCard(
                 StatusBox(
                     modifier = Modifier
                         .weight(1f),
-                    label = "DÍAS PENDIENTES",
+                    label = stringResource(R.string.days_remaining_upper),
                     value = pendingDays.toString(),
-                    containerColor = Color(0xFFFFF0F0),
-                    contentColor = Color(0xFFC92A2A),
+                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                    contentColor = MaterialTheme.colorScheme.error,
                     isRight = true
                 )
             }
@@ -98,12 +100,12 @@ fun ResumenDetailsCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 EconomicValue(
-                    label = "TOTAL COBRADO",
+                    label = stringResource(R.string.total_paid_upper),
                     value = totalPaid,
                     isError = false
                 )
                 EconomicValue(
-                    label = "PENDIENTE",
+                    label = stringResource(R.string.pending_upper),
                     value = pendingAmount,
                     isError = true
                 )
