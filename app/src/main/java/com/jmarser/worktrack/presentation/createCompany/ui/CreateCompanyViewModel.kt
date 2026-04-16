@@ -205,7 +205,7 @@ class CreateCompanyViewModel @AssistedInject constructor(
 
             result.onSuccess {
                 clearForm()
-                emitEffect(CreateCompanyEffect.ShowMessage(R.string.create_company_success))
+                emitEffect(CreateCompanyEffect.ShowMessage(R.string.create_company_successfully))
                 emitEffect(CreateCompanyEffect.NavigateToBack)
             }
                 .onFailure { emitEffect(CreateCompanyEffect.ShowMessage(R.string.create_company_error)) }
@@ -257,11 +257,11 @@ class CreateCompanyViewModel @AssistedInject constructor(
             _formState.update { it.copy(isLoading = false) }
 
             result.onSuccess {
-                emitEffect(CreateCompanyEffect.ShowMessage(R.string.changes_saved_successfully))
+                emitEffect(CreateCompanyEffect.ShowMessage(R.string.update_company_successfully))
                 delay(100)
                 emitEffect(CreateCompanyEffect.NavigateToBack)
             }.onFailure {
-                emitEffect(CreateCompanyEffect.ShowMessage(R.string.error_saving_changes))
+                emitEffect(CreateCompanyEffect.ShowMessage(R.string.update_company_error))
             }
         }
     }

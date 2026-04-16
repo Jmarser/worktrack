@@ -90,10 +90,10 @@ class CompanyListViewModel @Inject constructor(
             val result = deleteCompanyByIdUseCase(companyId)
             _deleteDialogState.value = null
             result.onSuccess {
-                emitEffect(CompanyListEffect.ShowMessage(R.string.delete_company_successfully))
+                emitEffect(CompanyListEffect.ShowMessage(R.string.delete_successfully_company))
 
             }.onFailure {
-                emitEffect(CompanyListEffect.ShowMessage(R.string.error_delete_company))
+                emitEffect(CompanyListEffect.ShowMessage(R.string.delete_error_company))
             }
         }
     }

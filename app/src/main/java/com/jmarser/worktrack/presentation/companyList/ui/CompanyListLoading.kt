@@ -31,7 +31,7 @@ fun CompanyListLoading(
         LazyColumn() {
             item {
                 Text(
-                    text = stringResource(R.string.company_summary),
+                    text = stringResource(R.string.companies_header_label),
                     style = MaterialTheme.typography.labelLarge,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer

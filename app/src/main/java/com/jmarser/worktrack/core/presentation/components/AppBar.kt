@@ -19,8 +19,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.ui.theme.MyAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -98,8 +100,7 @@ fun AppBar(
                     ) {
                         if (showFilters) {
                             DropdownMenuItem(
-                                text = { Text(if (filtersVisible) "Ocultar filtros" else "Mostrar filtros") },
-                                onClick = {
+                                text = { Text(if (filtersVisible) stringResource(R.string.action_hide_filters) else stringResource(R.string.action_show_filters)) },                              onClick = {
                                     onFiltersSelected(!filtersVisible)
                                     menuExpanded = false
                                 },
@@ -108,7 +109,7 @@ fun AppBar(
                         }
                         if (showSettings) {
                             DropdownMenuItem(
-                                text = { Text("Ajustes") },
+                                text = { Text(stringResource(R.string.action_settings)) },
                                 onClick = {
                                     onSettingsSelected()
                                     menuExpanded = false

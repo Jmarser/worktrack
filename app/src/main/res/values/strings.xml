@@ -1,63 +1,156 @@
 <resources>
-    <string name="app_name">WorkTrack</string>
-    <string name="retry">Reintentar</string>
-    <string name="delete">Eliminar</string>
-    <string name="cancel">Cancelar</string>
-    <string name="accept">Aceptar</string>
-    <string name="delete_company">Eliminar empresa</string>
-    <string name="msg_delete_company">¿Seguro que quiere eliminar la empresa %s?</string>
+    <!-- COMUNES -->
+    <string name="app_name">WorkTracker</string>
+    <string name="action_save">Guardar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_retry">Reintentar</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_delete_confirm">Sí, eliminar</string>
+    <string name="action_accept">Aceptar</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_hide_filters">Ocultar filtros</string>
+    <string name="action_show_filters">Mostrar filtros</string>
+    <string name="action_settings">Ajustes</string>
 
-    <string name="companies">Empresas</string>
-    <string name="list_companies_empty">No hay empresas disponibles.\nCree una empresa.</string>
+    <string name="company_not_found">Empresa no encontrada</string>
 
-    <string name="general_summary">Resumen general</string>
-    <string name="my_contributions">Mis colaboraciones</string>
-    <string name="active_companies">Empresas activas</string>
-    <string name="days_outstanding">Días pendientes de cobro</string>
-    <string name="amount_due">Monto pendiente de cobro</string>
-    
-    <string name="error_unknown">Ha ocurrido un error desconocido.</string>
-    <string name="full_price_relation_error">El precio de día completo no puede ser menor al de media jornada.</string>
-    <string name="half_price_relation_error">El precio de media jornada no puede ser mayor al del día completo.</string>
+    <!-- SPLASH -->
+    <string name="splash_subtitle">Controla y gestiona tus días de trabajo</string>
+    <string name="splash_footer">DESIGNED &amp; DEVELOPED BY JMARSER</string>
+
+    <!-- EMPRESAS -->
+    <string name="companies_top_bar_title">Empresas</string>
+    <string name="companies_header_label">RESUMEN GENERAL</string>
+    <string name="companies_header_title">Mis colaboraciones</string>
+    <string name="companies_card_companies_actives">Empresas Activas</string>
+    <string name="companies_card_companies_days_outstanding">Días pendientes de cobro</string>
+    <string name="companies_card_companies_amount_due">Monto pendiente de cobro</string>
+    <string name="companies_item_total_days_worked">Total días trabajados: %s</string>
+    <string name="companies_item_pending_days_amount">DÍAS PENDIENTES DE COBRO: %s</string>
+
+    <!-- CREAR / EDITAR EMPRESA -->
+    <string name="create_company_top_bar">Nueva empresa</string>
+    <string name="edit_company_top_bar">Actualizar empresa</string>
+    <string name="create_company_header_label">REGISTRO DE ENTIDAD</string>
+    <string name="create_company_header_title">Configura tu colaboración</string>
+    <string name="edit_company_header_title">Actualiza tu colaboración</string>
+    <string name="create_company_section_identity">Detalles de la empresa</string>
+    <string name="create_company_name_label">NOMBRE DE LA EMPRESA</string>
+    <string name="create_company_name_hint">Ej. Tech Solutions S.L.</string>
+    <string name="create_company_fess">Tarifas</string>
+    <string name="create_company_section_rates">Estructura de Tarifas</string>
+    <string name="create_company_full_day">DÍA COMPLETO</string>
+    <string name="create_company_half_day">MEDIA JORNADA</string>
+    <string name="create_company_currency_label">MONEDA DE FACTURACIÓN</string>
+    <string name="create_company_tip_title">Consejo de Facturación</string>
+    <string name="create_company_tip_desc">Los precios configurados aquí se aplicarán automáticamente a tus nuevos registros de jornada para esta empresa. Puedes modificarlos en cualquier momento.</string>
+    <string name="create_company_action_button">Guardar Empresa</string>
+    <string name="edit_company_action_button">Actualizar Empresa</string>
+    <string name="error_company_name_empty">El nombre de la empresa es obligatorio</string>
+    <string name="error_company_rate_invalid">Introduce una tarifa válida</string>
+    <string name="error_company_full_price_relation">El precio de día completo no puede ser menor al de media jornada.</string>
+    <string name="error_company_half_price_relation">El precio de media jornada no puede ser mayor al del día completo.</string>
     <string name="invalid_format_error">La cantidad indicada no es correcta</string>
-    <string name="empty_field_error">El campo no puede estar vacío</string>
+    <string name="create_company_successfully">Empresa creada correctamente.</string>
+    <string name="create_company_error">Error al crear la empresa, inténtelo de nuevo.</string>
+    <string name="update_company_successfully">Actualización de la empresa realizada correctamente.</string>
+    <string name="update_company_error">Error al actualizar la empresa</string>
+    <string name="create_company_name_required">El nombre de la empresa es requerido</string>
+    <string name="error_company_already_exists">El nombre de la empresa ya esta registrado</string>
 
-    // Pantalla Crear empresa
-    <string name="createCompany">Crear empresa</string>
-    <string name="detailsCompany">Detalles de la empresa</string>
-    <string name="nameCompany">Nombre de la empresa</string>
-    <string name="fess">Tarifas</string>
-    <string name="payment_currency">Moneda de pago</string>
-    <string name="full_day">Día completo</string>
-    <string name="half_day">Media jornada</string>
-    <string name="billing_advice">Consejos de facturación</string>
-    <string name="message_billing_advide">Los precios configurados aquí se aplicarán automáticamente a tus nuevos registros de jornada para esta empresa.</string>
-    <string name="save_company">Guardar Empresa</string>
-    <string name="create_company_success">La empresa se ha creado correctamente.</string>
-    <string name="create_company_error">Ha ocurrido un error al crear la empresa.</string>
-    <string name="update_company">Actualizar empresa</string>
-    <string name="save_changes">Guardar cambios</string>
-    <string name="changes_saved_successfully">Cambios guardados correctamente.</string>
-    <string name="error_saving_changes">Error al guardar los cambios.</string>
-    <string name="company_not_found">Compañía no encontrada</string>
-    <string name="delete_company_successfully">Compañía eliminada correctamente.</string>
-    <string name="error_delete_company">Error al eliminar la compañía.</string>
 
-    <string name="name_company_required">El nombre de la empresa es requerido.</string>
-    <string name="company_already_exists">La empresa ya existe.</string>
+    <!-- DÍAS TRABAJADOS -->
+    <string name="workdays_top_bar_title">Días trabajados</string>
+    <string name="workdays_summary_company_label">EMPRESA</string>
+    <string name="workdays_summary_total_days">TOTAL DÍAS</string>
+    <string name="workdays_summary_pending_days">DÍAS PENDIENTES</string>
+    <string name="workdays_summary_total_paid">TOTAL COBRADO</string>
+    <string name="workdays_summary_pending_amount">PENDIENTE</string>
+    <string name="workdays_list_header">Actividad reciente</string>
+    <string name="workdays_item_status_paid">COBRADO</string>
+    <string name="workdays_item_status_pending">PENDIENTE</string>
+    <string name="workdays_no_recent_activity_title">No hay actividad reciente.</string>
+    <string name="workdays_no_recent_activity_subtitle">Todavía no has registrado ninguna jornada\npara esta empresa</string>
 
-    // Pantalla de detalles empresa
-    <string name="days_worked">Días trabajados</string>
-    <string name="recent_activity">Actividad reciente</string>
-    <string name="pending_upper">PENDIENTE</string>
-    <string name="paid_upper">COBRADO</string>
-    <string name="unknown_work">Trabajo desconocido</string>
-    <string name="no_recent_activity">No hay actividad reciente.</string>
-    <string name="msg_no_recent_activity">Todavía no has registrado ninguna jornada\npara esta empresa</string>
-    <string name="company_upper">EMPRESA</string>
-    <string name="total_paid_upper">TOTAL COBRADO</string>
-    <string name="total_days_upper">TOTAL DÍAS</string>
-    <string name="days_remaining_upper">DÍAS PENDIENTES</string>
-    <string name="company_summary">Resumen empresa</string>
+    <!-- CREAR DÍA DE TRABAJO -->
+    <string name="create_workday_top_bar">Nuevo día</string>
+    <string name="create_workday_company_label">EMPRESA</string>
+    <string name="create_workday_date_label">FECHA</string>
+    <string name="create_workday_full_day_toggle">Día completo</string>
+    <string name="create_workday_full_day_subtitle">Jornada de 8 horas</string>
+    <string name="create_workday_payment_status">Esado de cobro</string>
+    <string name="create_workday_payment_status_subtitle_paid">Cobrado</string>
+    <string name="create_workday_payment_status_subtitle_pending">Pendiente</string>
+    <string name="create_workday_total_amount">IMPORTE TOTAL</string>
+    <string name="create_workday_section_work_performed">Trabajos realizados</string>
+    <string name="create_workday_section_work_subtitle">Trabajos desarrollados durante la jornada</string>
+    <string name="create_workday_section_work_empty">No hay trabajos disponibles</string>
+    <string name="create_workday_section_expanses">Gastos</string>
+    <string name="create_workday_sectino_expanses_subtitle">Dietas, transporte y otros costes</string>
+    <string name="create_workday_section_expanses_empty">No se han realizados gastos en esta jornada</string>
+    <string name="create_workday_action_button">Guardar Jornada</string>
+    <string name="error_workday_no_company">Debes seleccionar una empresa</string>
+    <string name="error_workday_invalid_date">La fecha seleccionada no es válida</string>
+
+    <!-- CREAR NUEVO TRABAJO -->
+    <string name="dialog_create_work_label">REGISTRAR</string>
+    <string name="dialog_create_work_title">Nuevo trabajo</string>
+    <string name="dialog_create_work_name_label">NOMBRE DEL TRABAJO</string>
+    <string name="dialog_create_work_name_hint">Ej. remodelación Fachada</string>
+    <string name="dialog_create_work_location_label">LUGAR DE TRABAJO</string>
+    <string name="dialog_create_work_location_hint">Calle, Ciudad</string>
+    <string name="dialog_create_work_desc_label">DESCRIPCIÓN DEL TRABAJO REALIZADO</string>
+    <string name="dialog_create_work_desc_hint">Detalla las tareas, materiales e incidencias.</string>
+    <string name="dialog_create_work_action_button">Guardar Trabajo</string>
+
+    <!-- CREAR NUEVO GASTO -->
+    <string name="dialog_create_expanse_label">REGISTRAR</string>
+    <string name="dialog_create_expanse_title">Nuevo gasto</string>
+    <string name="dialog_create_expanse_concept_label">CONCEPTO</string>
+    <string name="dialog_create_expanse_hint">Ej. Suscripción servidor</string>
+    <string name="dialog_create_expanse_amount_label">MONTO DEL GASTO</string>
+    <string name="dialog_create_expanse_paid_label">¿Pagado?</string>
+    <string name="dialog_create_expanse_pais_subtitle">Marcar como transacción completada</string>
+    <string name="dialog_create_expanse_action_button">Agregar gasto</string>
+
+    <!-- AJUSTES -->
+    <string name="settings_header_label">CONFIGURACIÓN</string>
+    <string name="settings_header_title">Personalización</string>
+    <string name="settings_section_appearance">Apariencia</string>
+    <string name="settings_theme_light">CLARO</string>
+    <string name="settings_theme_dark">OSCURO</string>
+    <string name="settings_theme_system">SISTEMA</string>
+    <string name="settings_section_filters">Filtros</string>
+    <string name="settings_filter_pending_days">Sólo días pendientes de cobrar</string>
+    <string name="settings_filter_pending_days_sub">Ocultar jornadas ya liquidadas</string>
+    <string name="settings_filter_pending_expanses">Sólo gastos pendientes de cobrar</string>
+    <string name="settings_filter_pending_expanses_sub">Filtrar por gastos activos sin reembolso</string>
+
+    <!-- PANTALLA ERROR -->
+    <string name="error_screen_label">ESTADO DEL SISTEMA</string>
+    <string name="error_screen_title">Algo ha salido mal</string>
+    <string name="error_screen_desc_default">No hemos podido cargar la información. Por favor, comprueba tu conexión e inténtalo de nuevo.</string>
+    <string name="error_unknown">Ha ocurrido un error desconocido.</string>
+    <string name="error_empty_field">El campo no puede estar vacío</string>
+    <string name="error_screen_companies_error_load">Error al cargar el listado de empresas</string>
+
+    <!-- PANTALLA SIN DATOS -->
+    <string name="empty_screen_label">ESTADO ACTUAL</string>
+    <string name="empty_screen_title_default">Aún no hay datos</string>
+    <string name="empty_screen_desc_default">Empieza agregando tu primera empresa o jornada.</string>
+    <string name="empty_screen_title_companies">No hay empresas disponibles</string>
+    <string name="empty_screen_desc_companies">Empieza agregando tu primera empresa.</string>
+    <string name="empty_screen_action_button">Comenzar ahora</string>
+
+
+    <!-- DIALOGO DE ELIMINACIÓN -->
+    <string name="delete_header">¿Estás seguro?</string>
+    <string name="delete_company_title">Estás a punto de eliminar la empresa %s.</string>
+    <string name="delete_item_info_default">Los datos asociados a este elemento también serán eliminados.</string>
+    <string name="delete_workday_title">Estás a punto de eliminar el registro de jornada del día %s</string>
+    <string name="delete_work_title">Se eliminará de forma permanente el trabajo</string>
+    <string name="delete_expanse_title">Se eliminará de forma permanente el gasto de %s €.</string>
+    <string name="delete_successfully_company">Empresa eliminada correctamente</string>
+    <string name="delete_error_company">Ha ocurrido un error al eliminar la empresa</string>
 
 </resources>

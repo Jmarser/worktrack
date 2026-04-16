@@ -68,7 +68,7 @@ fun EmptyWorkDays(
         VerticalSpaceLarge()
 
         Text(
-            text = stringResource(R.string.no_recent_activity),
+            text = stringResource(R.string.workdays_no_recent_activity_title),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onSurface
@@ -77,7 +77,7 @@ fun EmptyWorkDays(
         VerticalSpaceNormal()
 
         Text(
-            text = stringResource(R.string.msg_no_recent_activity),
+            text = stringResource(R.string.workdays_no_recent_activity_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,

@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c79acd33-9c5e-4b63-a28a-9a1a472d7866" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/useCase/GetCompanyCompleteByIdUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/EmptyWorkDays.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/LoadingCompanyDetails.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetailsState.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.3.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -22,25 +18,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/error/ValidationError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/error/ValidationError.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/components/AppBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/components/AppBar.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/components/AppImages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/components/AppImages.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/components/CustomConfirmDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/components/CustomConfirmDialog.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/screens/EmptyScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/screens/EmptyScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/screens/ErrorScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/core/presentation/screens/ErrorScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/CompanyComplete.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/domain/model/CompanyComplete.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/EconomicValue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/EconomicValue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/EmptyWorkDays.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/EmptyWorkDays.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/LoadingCompanyDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/LoadingCompanyDetails.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/ResumenDetailsCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/ResumenDetailsCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/ResumenWorkDay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/components/ResumenWorkDay.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetailsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyDetails/ui/CompanyDetailsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/model/HomeUiModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/model/HomeUiModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/components/CompanyItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/components/CompanyItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/components/HeaderResumenSection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/components/HeaderResumenSection.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListLoading.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListLoading.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/companyList/ui/CompanyListViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/createCompany/ui/CreateCompanyScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/createCompany/ui/CreateCompanyScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/createCompany/ui/CreateCompanyViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/createCompany/ui/CreateCompanyViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/error/ValidationErrorHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/presentation/error/ValidationErrorHelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/Color.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/Dimens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/Dimens.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/Theme.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/utilsUi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmarser/worktrack/ui/theme/utilsUi.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
@@ -239,12 +235,12 @@
       <map>
         <entry key="com.jmarser.worktrack">
           <value>
-            <CheckInfo lastCheckTimestamp="1776024425212" />
+            <CheckInfo lastCheckTimestamp="1776274355757" />
           </value>
         </entry>
         <entry key="com.jmarser.worktrack.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1776024425211" />
+            <CheckInfo lastCheckTimestamp="1776274355757" />
           </value>
         </entry>
       </map>

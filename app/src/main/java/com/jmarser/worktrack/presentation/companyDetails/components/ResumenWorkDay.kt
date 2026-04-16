@@ -39,7 +39,7 @@ fun ResumenWorkDay(
     // Configuración de colores según estado
     val statusContainerColor = if (isPending) Color(0xFFFEE2E2) else Color(0xFFDCFCE7)
     val statusContentColor = if (isPending) Color(0xFF991B1B) else Color(0xFF166534)
-    val statusLabel = stringResource( if (isPending) R.string.pending_upper else R.string.paid_upper)
+    val statusLabel = stringResource( if (isPending) R.string.workdays_item_status_pending else R.string.workdays_item_status_paid)
 
     Card(
         modifier = modifier
@@ -87,7 +87,7 @@ fun ResumenWorkDay(
                 verticalArrangement = Arrangement.Center,
             ) {
                 Text(
-                    text = workDay.description ?: stringResource(R.string.unknown_work),
+                    text = workDay.description ?: stringResource(R.string.error_unknown),
                     style = MaterialTheme.typography.titleMedium,
                     color = Color.Black
                 )

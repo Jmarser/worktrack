@@ -10,14 +10,12 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.outlined.Apartment
+import androidx.compose.material.icons.outlined.DeleteForever
 import androidx.compose.material.icons.outlined.ErrorOutline
 import androidx.compose.material.icons.outlined.EventNote
+import androidx.compose.material.icons.rounded.Info
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
-import com.jmarser.worktrack.R
 
 object AppImages {
 
@@ -31,6 +29,8 @@ object AppImages {
     val ic_save: ImageVector @Composable get() = Icons.Default.Save
     val ic_empty_work_day: ImageVector @Composable get() = Icons.Outlined.EventNote
     val ic_error_screen: ImageVector @Composable get() = Icons.Outlined.ErrorOutline
+    val ic_delete: ImageVector @Composable get() = Icons.Outlined.DeleteForever
+    val ic_info: ImageVector @Composable get() = Icons.Rounded.Info
 
 
 

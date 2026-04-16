@@ -31,30 +31,30 @@ fun HeaderResumenSection(
         verticalArrangement = Arrangement.spacedBy(appDimens.paddingSmall)
     ) {
         Text(
-            text = stringResource(R.string.general_summary),
+            text = stringResource(R.string.companies_header_label),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onPrimaryContainer
         )
         Text(
-            text = stringResource(R.string.my_contributions),
+            text = stringResource(R.string.companies_header_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onPrimaryContainer
         )
 
         ResumenCard(
-            title = stringResource(R.string.active_companies),
+            title = stringResource(R.string.companies_card_companies_actives),
             message = data.totalCompanies,
             colorMessage = MaterialTheme.colorScheme.onPrimaryContainer
         )
         ResumenCard(
-            title = stringResource(R.string.days_outstanding),
+            title = stringResource(R.string.companies_card_companies_days_outstanding),
             message = data.globalPendingDays,
             colorMessage = MaterialTheme.colorScheme.error
         )
         ResumenCard(
-            title = stringResource(R.string.amount_due),
+            title = stringResource(R.string.companies_card_companies_amount_due),
             message = "${data.totalPendingAmount} €",
             colorMessage = MaterialTheme.colorScheme.error
         )

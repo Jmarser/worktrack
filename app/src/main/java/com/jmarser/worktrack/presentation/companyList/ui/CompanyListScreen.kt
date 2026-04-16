@@ -73,10 +73,10 @@ fun CompanyListScreen(
 
     deleteDialogState?.let{companySummary ->
         CustomConfirmDialog(
-            textTitle = stringResource(R.string.delete_company),
-            textMessage = stringResource(R.string.msg_delete_company, companySummary.name),
-            textBtnConfirm = stringResource(R.string.delete),
-            textBtnCancel = stringResource(R.string.cancel),
+            textTitle = stringResource(R.string.delete_header),
+            textMessage = stringResource(R.string.delete_company_title, companySummary.name),
+            textBtnConfirm = stringResource(R.string.action_delete_confirm),
+            textBtnCancel = stringResource(R.string.action_cancel),
             onConfirm = {
                 viewModel.onEvent(CompanyListEvent.onClickDeleteCompany(companySummary.id))
             },
@@ -93,7 +93,7 @@ fun CompanyListScreen(
         topBar = {
             AppBar(
                 modifier = Modifier,
-                title = stringResource(R.string.companies),
+                title = stringResource(R.string.companies_top_bar_title),
                 showOnBack = false,
                 showSettings = true,
                 showAddIcon = true,
@@ -122,10 +122,10 @@ fun CompanyListScreen(
             CompanyListState.Empty -> {
                 EmptyScreen(
                     modifier = contentModifier,
-                    title = "No hay empresas disponibles",
-                    description = "Empieza agregando tu primera empresa.",
+                    title = stringResource(R.string.empty_screen_title_companies),
+                    description = stringResource(R.string.empty_screen_desc_companies),
                     iconScreen = AppImages.ic_company,
-                    buttonText = "Crear ahora",
+                    buttonText = stringResource(R.string.empty_screen_action_button),
                     onButtonClick = {
                         viewModel.onEvent(CompanyListEvent.onClickCreateCompany)
                     }
@@ -142,8 +142,8 @@ fun CompanyListScreen(
                 ErrorScreen(
                     modifier = contentModifier,
                     title = state.message.asString(),
-                    description = "No hemos podido cargar las empresas.",
-                    buttonTxt = stringResource(R.string.retry),
+                    description = stringResource(R.string.error_screen_desc_default),
+                    buttonTxt = stringResource(R.string.action_retry),
                     iconButton = AppImages.ic_refresh,
                     onRetryClick = {
                         viewModel.onEvent(CompanyListEvent.onRetry)

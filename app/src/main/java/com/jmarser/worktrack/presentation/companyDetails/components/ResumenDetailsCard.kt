@@ -47,7 +47,7 @@ fun ResumenDetailsCard(
                 .fillMaxWidth()
         ) {
             Text(
-                text = stringResource(R.string.company_upper),
+                text = stringResource(R.string.workdays_summary_company_label),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
                 color = Color.Gray
@@ -69,7 +69,7 @@ fun ResumenDetailsCard(
                 StatusBox(
                     modifier = Modifier
                         .weight(1f),
-                    label = stringResource(R.string.total_days_upper),
+                    label = stringResource(R.string.workdays_summary_total_days),
                     value = totalDays.toString(),
                     containerColor = Color(0xFFF1F3F5),
                     contentColor = Color.Black,
@@ -78,7 +78,7 @@ fun ResumenDetailsCard(
                 StatusBox(
                     modifier = Modifier
                         .weight(1f),
-                    label = stringResource(R.string.days_remaining_upper),
+                    label = stringResource(R.string.workdays_summary_pending_days),
                     value = pendingDays.toString(),
                     containerColor = MaterialTheme.colorScheme.errorContainer,
                     contentColor = MaterialTheme.colorScheme.error,
@@ -100,12 +100,12 @@ fun ResumenDetailsCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 EconomicValue(
-                    label = stringResource(R.string.total_paid_upper),
+                    label = stringResource(R.string.workdays_summary_total_paid),
                     value = totalPaid,
                     isError = false
                 )
                 EconomicValue(
-                    label = stringResource(R.string.pending_upper),
+                    label = stringResource(R.string.workdays_summary_pending_amount),
                     value = pendingAmount,
                     isError = true
                 )

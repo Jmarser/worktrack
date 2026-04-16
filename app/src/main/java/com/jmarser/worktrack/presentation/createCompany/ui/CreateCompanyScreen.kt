@@ -103,7 +103,7 @@ fun CreateCompanyScreen(
         topBar = {
             AppBar(
                 modifier = Modifier,
-                title = stringResource(if (isEdit) R.string.update_company else R.string.createCompany),
+                title = stringResource(if (isEdit) R.string.edit_company_top_bar else R.string.create_company_top_bar),
                 showOnBack = true,
                 showFilters = false,
                 showSettings = true,
@@ -153,7 +153,7 @@ fun CreateCompanyScreen(
                         HorizontalSpaceMedium()
 
                         Text(
-                            text = stringResource(R.string.detailsCompany),
+                            text = stringResource(R.string.create_company_header_label),
                             style = MaterialTheme.typography.bodyLarge,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -166,7 +166,7 @@ fun CreateCompanyScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = appDimens.paddingMedium),
-                        text = stringResource(R.string.nameCompany),
+                        text = stringResource(R.string.create_company_name_label),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -210,7 +210,7 @@ fun CreateCompanyScreen(
                         HorizontalSpaceMedium()
 
                         Text(
-                            text = stringResource(R.string.fess),
+                            text = stringResource(R.string.create_company_fess),
                             style = MaterialTheme.typography.bodyLarge,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -223,7 +223,7 @@ fun CreateCompanyScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = appDimens.paddingMedium),
-                        text = stringResource(R.string.payment_currency),
+                        text = stringResource(R.string.create_company_currency_label),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -266,7 +266,7 @@ fun CreateCompanyScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = appDimens.paddingMedium),
-                        text = stringResource(R.string.full_day),
+                        text = stringResource(R.string.create_company_full_day),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -291,7 +291,7 @@ fun CreateCompanyScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = appDimens.paddingMedium),
-                        text = stringResource(R.string.half_day),
+                        text = stringResource(R.string.create_company_half_day),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -340,13 +340,13 @@ fun CreateCompanyScreen(
                             .padding(appDimens.paddingMedium)
                     ) {
                         Text(
-                            text = stringResource(R.string.billing_advice),
+                            text = stringResource(R.string.create_company_tip_title),
                             style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = stringResource(R.string.message_billing_advide),
+                            text = stringResource(R.string.create_company_tip_desc),
                             style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
@@ -360,7 +360,7 @@ fun CreateCompanyScreen(
                 modifier = Modifier
                     .padding(appDimens.iconSizeLarge)
                     .fillMaxWidth(),
-                label = stringResource(if (isEdit) R.string.save_changes else R.string.save_company),
+                label = stringResource(if (isEdit) R.string.edit_company_action_button else R.string.create_company_action_button),
                 iconStart = AppImages.ic_save,
                 contentDescription = "guardar empresa",
                 isEnabled = formState.isButtonEnabled,

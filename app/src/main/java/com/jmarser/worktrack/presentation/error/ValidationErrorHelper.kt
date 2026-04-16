@@ -16,13 +16,13 @@ fun ValidationError.asString(): String{
     return when(this){
         ValidationError.ErrorUnknown -> stringResource(R.string.error_unknown)
 
-        ValidationError.EmptyField -> stringResource(R.string.empty_field_error)
+        ValidationError.EmptyField -> stringResource(R.string.error_empty_field)
         ValidationError.InvalidFormat -> stringResource(R.string.invalid_format_error)
-        ValidationError.FullPriceRelationError -> stringResource(R.string.full_price_relation_error)
-        ValidationError.HalfPriceRelationError -> stringResource(R.string.half_price_relation_error)
+        ValidationError.FullPriceRelationError -> stringResource(R.string.error_company_full_price_relation)
+        ValidationError.HalfPriceRelationError -> stringResource(R.string.error_company_half_price_relation)
 
-        ValidationError.NameCompanyRequired -> stringResource(R.string.name_company_required)
-        ValidationError.CompanyAlreadyExists -> stringResource(R.string.company_already_exists)
+        ValidationError.NameCompanyRequired -> stringResource(R.string.create_company_name_required)
+        ValidationError.CompanyAlreadyExists -> stringResource(R.string.error_company_already_exists)
         ValidationError.CompanyNotFound -> stringResource(R.string.company_not_found)
     }
 }

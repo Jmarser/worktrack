@@ -69,7 +69,7 @@ fun LoadingCompanyDetails(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = stringResource(R.string.recent_activity),
+                    text = stringResource(R.string.workdays_list_header),
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
 

@@ -65,7 +65,7 @@ fun CompanyDetails(
         topBar = {
             AppBar(
                 modifier = modifier,
-                title = stringResource(R.string.days_worked),
+                title = stringResource(R.string.workdays_top_bar_title),
                 showOnBack = true,
                 showAddIcon = true,
                 showFilters = true,
@@ -97,10 +97,10 @@ fun CompanyDetails(
             CompanyDetailsState.Empty -> {
                 EmptyScreen(
                     modifier = contentModifier,
-                    title = "La empresa no está disponible",
-                    description = "Empieza agregando tu primera empresa.",
+                    title = stringResource(R.string.empty_screen_title_companies),
+                    description = stringResource(R.string.empty_screen_desc_companies),
                     iconScreen = AppImages.ic_company,
-                    buttonText = "Crear ahora",
+                    buttonText = stringResource(R.string.empty_screen_action_button),
                     onButtonClick = {
 
                     }
@@ -111,8 +111,8 @@ fun CompanyDetails(
                 ErrorScreen(
                     modifier = contentModifier,
                     title = state.message.asString(),
-                    description = "No hemos podido cargar los datos de la empresa",
-                    buttonTxt = stringResource(R.string.retry),
+                    description = stringResource(R.string.empty_screen_action_button),
+                    buttonTxt = stringResource(R.string.action_retry),
                     iconButton = AppImages.ic_refresh,
                     onRetryClick = {
 
@@ -147,7 +147,7 @@ fun CompanyDetails(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                text = stringResource(R.string.recent_activity),
+                                text = stringResource(R.string.workdays_list_header),
                                 style = MaterialTheme.typography.bodyLarge,
                                 fontWeight = FontWeight.Bold,
 

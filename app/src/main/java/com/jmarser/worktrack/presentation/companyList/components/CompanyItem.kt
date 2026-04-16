@@ -28,9 +28,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.jmarser.worktrack.R
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceLarge
 import com.jmarser.worktrack.core.presentation.components.VerticalSpaceNormal
 import com.jmarser.worktrack.domain.model.Company
@@ -96,7 +98,7 @@ fun CompanyItem(
                     style = MaterialTheme.typography.titleLarge
                 )
                 Text(
-                    text = "Total días trabajados: ${company.totalDaysWorked}",
+                    text = stringResource(R.string.companies_item_total_days_worked, company.totalDaysWorked),
                     style = MaterialTheme.typography.bodySmall
                 )
                 VerticalSpaceNormal()
@@ -107,7 +109,7 @@ fun CompanyItem(
                             shape = MaterialTheme.shapes.large
                         )
                         .padding(horizontal = appDimens.paddingNormal),
-                    text = "* DÍAS PENDIENTES DE COBRO: ${company.daysPending}",
+                    text = stringResource(R.string.companies_item_pending_days_amount,company.daysPending ),
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
                     color = if (bandera) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.tertiary
@@ -137,7 +139,7 @@ fun CompanyItem(
                             Text(
                                 modifier = Modifier
                                     .padding(start = appDimens.paddingTiny),
-                                text = "Editar"
+                                text = stringResource(R.string.action_edit)
                             )
                         }
                     }
@@ -159,7 +161,7 @@ fun CompanyItem(
                             Text(
                                 modifier = Modifier
                                     .padding(start = appDimens.paddingTiny),
-                                text = "Eliminar",
+                                text = stringResource(R.string.action_delete),
                                 color = MaterialTheme.colorScheme.error
                             )
                         }
